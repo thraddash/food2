@@ -9,20 +9,40 @@ function App() {
   // Reference
 
   // State
+  const [data, setData] = useState(Data);
 
   // Temp State
 
   // Effect
+  useEffect(() => {
+    console.log(data);
+    // setData(Data)
+  },[data]);
 
   // Add Post
+  const addPost = () => {
+
+  }
 
   // Delete Post
+  const deletePost = (key) => {
+
+  }
 
   // Populate Post
+  const populatePost = (key, title, content) => {
+
+  }
 
   // Update Post
+  const updatePost = () => {
+
+  }
 
   // Function to write to JSON file
+  const saveJson = (posts) => {
+
+  }
 
   // Bonus Section
 
@@ -47,7 +67,7 @@ function App() {
       </div>
 
       <div className="posts">
-        { Data.map(post => {
+        { data ? data.map(post => {
           return(
             <div key={ post.id } className="post">
               <h3>{ post.title } </h3>
@@ -56,7 +76,7 @@ function App() {
               <button>Delete</button>
             </div>
           )
-        })}
+        }) : null }
       </div>
     </div>
   );
