@@ -7,29 +7,39 @@ import axios from 'axios';
 function App() {
 
   // Reference
-
+  const titleRef = useRef();
+  const contentRef = useRef();
+  
   // State
   const [data, setData] = useState(Data);
 
   // Temp State
+  const [title, setTitle] = useState();
+  const [content, setContent] = useState();
+
+
 
   // Effect
+  //////////////////////////////////////  
   useEffect(() => {
     // console.log(data);
     // setData(Data)
   },[data]);
 
   // Add Post
+  //////////////////////////////////////
   const addPost = () => {
 
   }
 
   // Delete Post
+  //////////////////////////////////////
   const deletePost = (key) => {
 
   }
 
   // Populate Post
+  //////////////////////////////////////
   const populatePost = (key, title, content) => {
     console.log(key)
     console.log(title)
@@ -37,26 +47,38 @@ function App() {
   }
 
   // Update Post
+  //////////////////////////////////////
   const updatePost = () => {
 
   }
 
   // Function to write to JSON file
+  //////////////////////////////////////
   const saveJson = (posts) => {
 
   }
 
   // Bonus Section
+  //////////////////////////////////////
 
   return (
     <div className="App">
       <div>
         <h4>Add New Post</h4>
-        <input placeholder="Title" />
+        <input placeholder="Title"
+          onChange={ e => setTitle( e.target.value) } 
+          value={title || '' }
+          ref={ titleRef }
+        />
         <br />
-        <textarea placeholder="Content"></textarea>
+        <textarea 
+          placeholder="Content"
+          onChange={ e => setContent( e.target.value) } 
+          value={content || '' }
+          ref={ contentRef }  
+        ></textarea>
         <br />
-        <button>Add Post</button>
+        <button onClick={ addPost }>Add Post</button>
       </div>
 
       <div>
@@ -65,7 +87,7 @@ function App() {
         <br />
         <textarea placeholder="Content"></textarea>
         <br />
-        <button>Update Post</button>
+        <button onClick={ updatePost }>Update Post</button>
       </div>
 
       <div className="posts">
@@ -75,7 +97,7 @@ function App() {
               <h3>{ post.title } </h3>
               <p>{ post.content }</p>
               <button onClick={ () => populatePost(post.id, post.title, post.content) }>Edit</button>
-              <button>Delete</button>
+              <button onClick={ () => deletePost(post.id) }>Delete</button>
             </div>
           )
         }) : null }
