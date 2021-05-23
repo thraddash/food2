@@ -15,7 +15,7 @@ function App() {
 
   // Effect
   useEffect(() => {
-    console.log(data);
+    // console.log(data);
     // setData(Data)
   },[data]);
 
@@ -31,7 +31,9 @@ function App() {
 
   // Populate Post
   const populatePost = (key, title, content) => {
-
+    console.log(key)
+    console.log(title)
+    console.log(content)
   }
 
   // Update Post
@@ -72,7 +74,7 @@ function App() {
             <div key={ post.id } className="post">
               <h3>{ post.title } </h3>
               <p>{ post.content }</p>
-              <button>Edit</button>
+              <button onClick={ () => populatePost(post.id, post.title, post.content) }>Edit</button>
               <button>Delete</button>
             </div>
           )
