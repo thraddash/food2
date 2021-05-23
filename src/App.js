@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect, useRef } from 'react';
 import './App.css';
 import Data from "./data.json";
+import { v1 as uuidv1 } from 'uuid';
+import axios from 'axios';
 
 function App() {
+
+  // Reference
+
+  // State
+
+  // Temp State
+
+  // Effect
+
+  // Add Post
+
+  // Delete Post
+
+  // Populate Post
+
+  // Update Post
+
+  // Function to write to JSON file
+
+  // Bonus Section
+
   return (
     <div className="App">
       <div>
