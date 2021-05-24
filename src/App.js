@@ -72,7 +72,22 @@ function App() {
   // Update Post
   //////////////////////////////////////
   const updatePost = () => {
+    // populate post info from temp state and prepare new object for changed post
+    let editedPost = {
+      "id": updateID,
+      "title": updateTitle,
+      "content": updateContent
+    }
+    // remove old post with same ID and get the remaining data /// filter 
+    let filterPost = [...data].filter(OBJ=>OBJ.id!==updateID);
+    // prepare object with edited post + remaining data from object above
+    let posts = [...filterPost, editedPost];
+    // push int state
+    setData(posts);
 
+    setUpdateID();
+    setUpdateTitle();
+    setUpdateContent();
   }
 
   // Function to write to JSON file
