@@ -31,7 +31,16 @@ function App() {
   // Add Post
   //////////////////////////////////////
   const addPost = () => {
-    
+    if(title && content) {
+      // create new post object
+      let newPost = {
+        "id": uuidv1(),
+        "title": title,
+        "content": content 
+      }
+      let posts = [...data, newPost];
+      setData(posts);
+    }
   }
 
   // Delete Post
