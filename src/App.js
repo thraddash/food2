@@ -48,6 +48,10 @@ function App() {
       // clear title and content from state
       setTitle();
       setContent();
+
+      // update write to json file
+      saveJson(posts);
+
     }
   }
 
@@ -59,6 +63,8 @@ function App() {
     // save the rest in state
     setData(filterOutPost);
 
+    // update write to json file
+    saveJson(filterOutPost);
   }
 
   // Populate Post
@@ -88,6 +94,9 @@ function App() {
     setUpdateID();
     setUpdateTitle();
     setUpdateContent();
+
+    // update write to json file
+    saveJson(posts);
   }
 
   // Function to write to JSON file
