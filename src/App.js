@@ -104,22 +104,26 @@ function App() {
         <button onClick={ addPost }>Add Post</button>
       </div>
 
-      <div>
-        <h4>Update Post</h4>
-        <input placeholder="Title"
-          onChange={e => setUpdateTitle(e.target.value)}
-          value={ updateTitle || '' }
-        />
-        <br />
-        <textarea placeholder="Content"
-          placeholder="Content"
-          onChange={e => setUpdateContent(e.target.value)}
-          value={ updateContent || '' }
-        ></textarea>
-        <br />
-        <button onClick={ updatePost }>Update Post</button>
-      </div>
-
+      {/* If temp state has got values of title and content for update form show this */}
+      {updateTitle || updateContent ?
+        (
+          <div>
+            <h4>Update Post</h4>
+            <input placeholder="Title"
+              onChange={e => setUpdateTitle(e.target.value)}
+              value={updateTitle || ''}
+            />
+            <br />
+            <textarea placeholder="Content"
+              placeholder="Content"
+              onChange={e => setUpdateContent(e.target.value)}
+              value={updateContent || ''}
+            ></textarea>
+            <br />
+            <button onClick={updatePost}>Update Post</button>
+          </div>
+        ) : null}
+      
       <div className="posts">
         { data ? data.map(post => {
           return(
