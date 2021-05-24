@@ -9,7 +9,7 @@ function App() {
   // Reference
   const titleRef = useRef();
   const contentRef = useRef();
-  
+
   // State
   const [data, setData] = useState(Data);
 
@@ -17,7 +17,9 @@ function App() {
   const [title, setTitle] = useState();
   const [content, setContent] = useState();
 
-
+  const [updateID, setUpdateID] = useState();
+  const [updateTitle, setUpdateTitle] = useState();
+  const [updateContent, setUpdateContent] = useState();
 
   // Effect
   //////////////////////////////////////  
@@ -29,7 +31,7 @@ function App() {
   // Add Post
   //////////////////////////////////////
   const addPost = () => {
-
+    
   }
 
   // Delete Post
@@ -67,14 +69,14 @@ function App() {
         <h4>Add New Post</h4>
         <input placeholder="Title"
           onChange={ e => setTitle( e.target.value) } 
-          value={title || '' }
+          value={ title || '' }
           ref={ titleRef }
         />
         <br />
         <textarea 
           placeholder="Content"
           onChange={ e => setContent( e.target.value) } 
-          value={content || '' }
+          value={ content || '' }
           ref={ contentRef }  
         ></textarea>
         <br />
@@ -83,9 +85,16 @@ function App() {
 
       <div>
         <h4>Update Post</h4>
-        <input placeholder="Title" />
+        <input placeholder="Title"
+          onChange={e => setUpdateTitle(e.target.value)}
+          value={ updateTitle || '' }
+        />
         <br />
-        <textarea placeholder="Content"></textarea>
+        <textarea placeholder="Content"
+          placeholder="Content"
+          onChange={e => setUpdateContent(e.target.value)}
+          value={ updateContent || '' }
+        ></textarea>
         <br />
         <button onClick={ updatePost }>Update Post</button>
       </div>
