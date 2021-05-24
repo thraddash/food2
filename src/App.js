@@ -99,15 +99,34 @@ function App() {
     saveJson(posts);
   }
 
-  // Function to write to JSON file
+  // Write to JSON file
   //////////////////////////////////////
+  // this function will receive all updated state / posts after you add, edit delete post
   const saveJson = (posts) => {
-
+    // api URL // end point from node server / express server
+    const url = 'http://localhost:5000/write'
+    axios.post(url, posts)
+    .then(response => {
+      // console.log(response);
+    });
   }
 
-  // Bonus Section
+  // Download JSON File
   //////////////////////////////////////
+  const saveData = jsonDate => {
+    const fileData = JSON.stringify(jsonDate);
 
+    const blob = new Blob([fileData], {type: "text/plain"});
+    const url = URL.createObjectURL(blob);
+    // create link
+    const link = document.createElement('a');
+    // point link to file to be downloaded
+    link.download = 'newData.json';
+    link.href = url;
+    // trigger download
+    link.click();
+  }
+  
   return (
     <div className="App">
       <div>
@@ -139,7 +158,6 @@ function App() {
             />
             <br />
             <textarea placeholder="Content"
-              placeholder="Content"
               onChange={e => setUpdateContent(e.target.value)}
               value={updateContent || ''}
             ></textarea>
@@ -159,6 +177,9 @@ function App() {
             </div>
           )
         }) : null }
+        <div className="btn-download">
+          <button onClick={ e => saveData(data )}>Download Data</button>
+        </div>
       </div>
     </div>
   );
