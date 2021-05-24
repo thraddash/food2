@@ -54,15 +54,19 @@ function App() {
   // Delete Post
   //////////////////////////////////////
   const deletePost = (key) => {
+    // filter out post containing that id, copy ...data first
+    let filterOutPost = [...data].filter(OBJ=>OBJ.id!==key);
+    // save the rest in state
+    setData(filterOutPost);
 
   }
 
   // Populate Post
   //////////////////////////////////////
   const populatePost = (key, title, content) => {
-    console.log(key)
-    console.log(title)
-    console.log(content)
+  //  console.log(key)
+  //  console.log(title)
+  //  console.log(content)
   }
 
   // Update Post
