@@ -114,7 +114,7 @@ function App() {
   // Download JSON File
   //////////////////////////////////////
   const saveData = jsonDate => {
-    const fileData = JSON.stringify(jsonDate);
+    const fileData = JSON.stringify(jsonDate, null, 2);
 
     const blob = new Blob([fileData], {type: "text/plain"});
     const url = URL.createObjectURL(blob);
@@ -178,7 +178,7 @@ function App() {
           )
         }) : null }
         <div className="btn-download">
-          <button onClick={ e => saveData(data )}>Download Data</button>
+          <button onClick={ e => saveData(data)}>Download Data</button>
         </div>
       </div>
     </div>
