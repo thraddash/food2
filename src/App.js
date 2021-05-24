@@ -26,6 +26,9 @@ function App() {
   useEffect(() => {
     // console.log(data);
     // setData(Data)
+    // clear form fields
+    //titleRef.current.value = '';
+    //contentRef.current.value = '';
   },[data]);
 
   // Add Post
@@ -38,8 +41,13 @@ function App() {
         "title": title,
         "content": content 
       }
+      // merge new post with copy of old state
       let posts = [...data, newPost];
+      // push new object to state
       setData(posts);
+      // clear title and content from state
+      setTitle();
+      setContent();
     }
   }
 
