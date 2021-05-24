@@ -64,9 +64,9 @@ function App() {
   // Populate Post
   //////////////////////////////////////
   const populatePost = (key, title, content) => {
-  //  console.log(key)
-  //  console.log(title)
-  //  console.log(content)
+    setUpdateID(key);
+    setUpdateTitle(title);
+    setUpdateContent(content);
   }
 
   // Update Post
