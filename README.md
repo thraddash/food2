@@ -1,4 +1,23 @@
-# Getting Started with Create React App
+[![Node version][node-shield]][node-url]
+[![npm version][npm-shield]][npm-url]
+[![GitHub commit activity][commits-shield]][commits-url]
+
+# Food2 (Create, Remove, Update, Delete JSON file)  
+
+## Install Script
+
+> yarn install  
+```
+npm install --global yarn
+```
+
+## Run Server and Client
+
+> yarn dev    
+(using concurently package module to start frontend and backend server)
+#### note: 
+frontend: localhost:3000  
+backend: localhost:5000
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
