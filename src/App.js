@@ -7,46 +7,52 @@ import axios from 'axios';
 function App() {
 
   // Reference
-  const titleRef = useRef();
+  const recipeNameRef = useRef();
+  const categoryRef = useRef();
   const contentRef = useRef();
 
   // State
   const [data, setData] = useState(Data);
 
   // Temp State
-  const [title, setTitle] = useState();
+  const [recipe_name, setRecipeName] = useState();
+  const [category, setCategory] = useState();
   const [content, setContent] = useState();
 
   const [updateID, setUpdateID] = useState();
-  const [updateTitle, setUpdateTitle] = useState();
+  const [updateRecipeName, setUpdateRecipeName] = useState();
+  const [updateCategory, setUpdateCategory] = useState();
   const [updateContent, setUpdateContent] = useState();
 
   // Effect
   //////////////////////////////////////  
   useEffect(() => {
-    // console.log(data);
+    // console.log(data)
     // setData(Data)
     // clear form fields
-    //titleRef.current.value = '';
+    //recipeNameRef.current.value = '';
     //contentRef.current.value = '';
+
   },[data]);
 
   // Add Post
   //////////////////////////////////////
   const addPost = () => {
-    if(title && content) {
+    if(recipe_name && category && content) {
       // create new post object
       let newPost = {
         "id": uuidv1(),
-        "title": title,
+        "recipe_name": recipe_name,
+        "category": category,
         "content": content 
       }
       // merge new post with copy of old state
       let posts = [...data, newPost];
       // push new object to state
       setData(posts);
-      // clear title and content from state
-      setTitle();
+      // clear recipe_name and content from state
+      setRecipeName();
+      setCategory();
       setContent();
 
       // update write to json file
@@ -69,9 +75,10 @@ function App() {
 
   // Populate Post
   //////////////////////////////////////
-  const populatePost = (key, title, content) => {
+  const populatePost = (key, recipe_name, category, content) => {
     setUpdateID(key);
-    setUpdateTitle(title);
+    setUpdateRecipeName(recipe_name);
+    setUpdateCategory(category);
     setUpdateContent(content);
   }
 
@@ -81,7 +88,8 @@ function App() {
     // populate post info from temp state and prepare new object for changed post
     let editedPost = {
       "id": updateID,
-      "title": updateTitle,
+      "recipe_name": updateRecipeName,
+      "category": updateCategory,
       "content": updateContent
     }
     // remove old post with same ID and get the remaining data /// filter 
@@ -92,7 +100,8 @@ function App() {
     setData(posts);
 
     setUpdateID();
-    setUpdateTitle();
+    setUpdateRecipeName();
+    setUpdateCategory();
     setUpdateContent();
 
     // update write to json file
@@ -131,10 +140,16 @@ function App() {
     <div className="App">
       <div>
         <h4>Add New Post</h4>
-        <input placeholder="Title"
-          onChange={ e => setTitle( e.target.value) } 
-          value={ title || '' }
-          ref={ titleRef }
+        <input placeholder="Recipe Name"
+          onChange={ e => setRecipeName( e.target.value) } 
+          value={ recipe_name || '' }
+          ref={ recipeNameRef }
+        />
+        <br />
+        <input placeholder="Category"
+          onChange={ e => setCategory( e.target.value) } 
+          value={ category || '' }
+          ref={ categoryRef }
         />
         <br />
         <textarea 
@@ -147,14 +162,19 @@ function App() {
         <button onClick={ addPost }>Add Post</button>
       </div>
 
-      {/* If temp state has got values of title and content for update form show this */}
-      {updateTitle || updateContent ?
+      {/* If temp state has got values of recipe_name, category and content for update form show this */}
+      {updateRecipeName || updateCategory || updateContent ?
         (
           <div>
             <h4>Update Post</h4>
-            <input placeholder="Title"
-              onChange={e => setUpdateTitle(e.target.value)}
-              value={updateTitle || ''}
+            <input placeholder="Recipe Name"
+              onChange={e => setUpdateRecipeName(e.target.value)}
+              value={updateRecipeName || ''}
+            />
+            <br />
+            <input placeholder="Category"
+              onChange={e => setUpdateCategory(e.target.value)}
+              value={updateCategory || ''}
             />
             <br />
             <textarea placeholder="Content"
@@ -170,9 +190,10 @@ function App() {
         { data ? data.map(post => {
           return(
             <div key={ post.id } className="post">
-              <h3>{ post.title } </h3>
+              <h3>{ post.recipe_name } </h3>
+              <p> { post.category } </p>
               <p>{ post.content }</p>
-              <button onClick={ () => populatePost(post.id, post.title, post.content) }>Edit</button>
+              <button onClick={ () => populatePost(post.id, post.recipe_name, post.category, post.content) }>Edit</button>
               <button onClick={ () => deletePost(post.id) }>Delete</button>
             </div>
           )
