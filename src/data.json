@@ -1,50 +1,18 @@
 [
   {
-    "id": "18a34f20-bc30-11eb-b83d-13213367ae36",
-    "category": "Dessert",
-    "recipe_name": "hello",
-    "content": "world"
-  },
-  {
-    "id": "00d4fd70-bc31-11eb-806e-4119ef39d572",
-    "category": "Salad",
-    "recipe_name": "aa",
-    "content": "aa"
-  },
-  {
-    "id": "6352d110-ce66-11eb-8e7b-3b425b07e205",
-    "recipe_name": "1",
-    "category": "11",
-    "content": "11"
-  },
-  {
-    "id": "d5f43e50-ce63-11eb-a578-7556ca15116d",
-    "recipe_name": "bread1",
-    "category": "bread2",
-    "content": "braed3"
-  },
-  {
-    "id": "4fbac700-d241-11eb-bb6a-3b52fe676f12",
-    "recipe_name": "323",
-    "category": "333",
-    "content": "333"
-  },
-  {
     "id": "835ea750-bc31-11eb-bea8-73824311d3f8",
-    "recipe_name": "cookie",
-    "category": "Dessert",
-    "content": "chocolate chip\n1/2 water\n1 egg\n5 gallons sugar"
+    "recipe_name": "chocolate chip cookie",
+    "category": "Pastry",
+    "ingredient": "1 cup butter, softened\n1 cup white sugar\n1 cup packed brown sugar\n2 eggs\n2 teaspoons vanilla extract\n1 teaspoon baking soda\n2 teaspoons hot water\n½ teaspoon salt\n3 cups all-purpose flour\n2 cups semisweet chocolate chips\n1 cup chopped walnuts",
+    "direction": "Step 1\nPreheat oven to 350 degrees F (175 degrees C).\n\nStep 2\nCream together the butter, white sugar, and brown sugar until smooth. Beat in the eggs one at a time, then stir in the vanilla. Dissolve baking soda in hot water. Add to batter along with salt. Stir in flour, chocolate chips, and nuts. Drop by large spoonfuls onto ungreased pans.\n\nStep 3\nBake for about 10 minutes in the preheated oven, or until edges are nicely browned.",
+    "note": "Per Serving: 298 calories; protein 3.6g; carbohydrates 38.9g; fat 15.6g; cholesterol 35.8mg; sodium 165.8mg. Full Nutrition"
   },
   {
-    "id": "623379e0-d241-11eb-bb6a-3b52fe676f12",
-    "recipe_name": "s",
-    "category": "s",
-    "content": "1.2 cup\n1 tsp spoon\n5 cups\n10 teaspoon"
-  },
-  {
-    "id": "de797770-d26e-11eb-ab76-0f21c9ceaa65",
-    "recipe_name": "newline json",
-    "category": "newline ",
-    "content": "p {\n  white-space: pre-wrap;\n}"
+    "id": "222dfa90-d274-11eb-bdd9-d95311247d88",
+    "recipe_name": "Banana Bread",
+    "category": "Pastry",
+    "ingredient": "2 to 3 medium (7\" to 7-7/8\" long) very ripe bananas, peeled (about 1 1/4 to 1 1/2 cups mashed)\n1/3 cup butter, unsalted or salted, melted\n1 teaspoon baking soda\n1 pinch salt\n3/4 cup sugar (1/2 cup if you would like it less sweet, 1 cup if more sweet)\n1 large egg, beaten\n1 teaspoon vanilla extract\n1 1/2 cups all purpose flouringredients",
+    "direction": "Preheat the oven to 350°F (175°C), and butter a 4x8-inch loaf pan.\n\nIn a mixing bowl, mash the ripe bananas with a fork until completely smooth. Stir the melted butter into the mashed bananas.\n\nMix in the baking soda and salt. Stir in the sugar, beaten egg, and vanilla extract. Mix in the flour.\n\nPour the batter into your prepared loaf pan. Bake for 50 minutes to 1 hour at 350°F (175°C), or until a tester inserted into the center comes out clean.\n\nRemove from oven and let cool in the pan for a few minutes. Then remove the banana bread from the pan and let cool completely before serving. Slice and serve. (A bread knife helps to make slices that aren't crumbly.)",
+    "note": "PREP TIME  COOK TIME TOTAL TIME\n10 mins    55 mins   65 mins\n\nSERVINGS            YIELD\n8 to 10 servings    1 loaf"
   }
 ]
