@@ -235,6 +235,7 @@ function App() {
           return(
             <div key={ post.id } className="post">
               <h3>{ post.recipe_name }</h3>
+              <img src={ post.image } alt=""></img>
               <p><b><u>Category:</u></b> { post.category }</p>
               <p><b><u>Ingredients:</u></b><br></br>{ post.ingredient }</p>
               <p><b><u>Directions:</u></b><br></br>{ post.direction }</p>
