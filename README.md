@@ -29,9 +29,9 @@ Running "yarn dev" will concurently start up frontend and backend server.
 #### frontend: http://localhost:3000  
 #### backend: http://localhost:5000  
  
-### Features:  
-- Ability to download data.json file
-- update third JSON.stringify argument to represent the space indentation level 
+## Features:  
+- Ability to download data.json file (DONE)
+- Add 3rd argument to JSON.stringify, to represent the space indentation level for easy of reading (DONE)
 <details>
   <summary> data.json </summary>
   
@@ -50,6 +50,17 @@ Running "yarn dev" will concurently start up frontend and backend server.
 ]
 ```
 </details>
+
+- update index.css to parse json file with newlines (DONE)     
+(issue came up when copying and pasting list of ingredients in textbox)   
+```
+p {
+  white-space: pre-wrap;
+}
+```
+- pending (local storage, file designation)     
+- pending (image add delete)   
+- good to have, convert onClick + to add additional textfields and append to json file   
 
 ## Install 
 yarn install  
