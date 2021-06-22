@@ -4,7 +4,7 @@
 
 # Food2 (Create, Remove, Update, Delete JSON file) 
 #### Demo: https://happy-shannon-69aac4.netlify.app/
-<img src="https://github.com/thraddash/food2/blob/master/src/images/mockup.png" width="800" title="Mockup">
+<img src="https://github.com/thraddash/food2/blob/master/src/images/mockup.jpg" width="800" title="Mockup">
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -100,6 +100,6 @@ yarn dev
 [node-url]: https://nodejs.org/
 [npm-shield]: https://img.shields.io/badge/npm-v6.14.11-orange
 [npm-url]: https://www.npmjs.com/package/npm-install
-[commits-shield]: https://img.shields.io/badge/commits-22-green.svg
+[commits-shield]: https://img.shields.io/badge/commits-29-green.svg
 [commits-url]: https://img.shields.io/github/commit-activity/y/thraddash/food2
 [product-screenshot]: /src/images/
