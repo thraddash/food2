@@ -1,8 +1,9 @@
-import React, {useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Data from "./data.json";
 import { v1 as uuidv1 } from 'uuid';
 import axios from 'axios';
+import FileUpload from './components/FileUpload';
 
 function App() {
 
@@ -43,19 +44,19 @@ function App() {
     //recipeNameRef.current.value = '';
     //ingredientRef.current.value = '';
 
-  },[data]);
+  }, [data]);
 
   // Add Post
   //////////////////////////////////////
   const addPost = () => {
-    if(recipe_name && category && ingredient) {
+    if (recipe_name && category && ingredient) {
       // create new post object
       let newPost = {
         "id": uuidv1(),
         "recipe_name": recipe_name,
         "category": category,
         "ingredient": ingredient,
-        "direction": direction, 
+        "direction": direction,
         "note": note
       }
       // merge new post with copy of old state
@@ -79,7 +80,7 @@ function App() {
   //////////////////////////////////////
   const deletePost = (key) => {
     // filter out post containing that id, copy ...data first
-    let filterOutPost = [...data].filter(OBJ=>OBJ.id!==key);
+    let filterOutPost = [...data].filter(OBJ => OBJ.id !== key);
     // save the rest in state
     setData(filterOutPost);
 
@@ -111,7 +112,7 @@ function App() {
       "note": updateNote
     }
     // remove old post with same ID and get the remaining data /// filter 
-    let filterPost = [...data].filter(OBJ=>OBJ.id!==updateID);
+    let filterPost = [...data].filter(OBJ => OBJ.id !== updateID);
     // prepare object with edited post + remaining data from object above
     let posts = [...filterPost, editedPost];
     // push int state
@@ -135,9 +136,9 @@ function App() {
     // api URL // end point from node server / express server
     const url = 'http://localhost:5000/write'
     axios.post(url, posts)
-    .then(response => {
-      // console.log(response);
-    });
+      .then(response => {
+        // console.log(response);
+      });
   }
 
   // Download JSON File
@@ -145,7 +146,7 @@ function App() {
   const saveData = jsonDate => {
     const fileData = JSON.stringify(jsonDate, null, 2);
 
-    const blob = new Blob([fileData], {type: "text/plain"});
+    const blob = new Blob([fileData], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     // create link
     const link = document.createElement('a');
@@ -155,45 +156,48 @@ function App() {
     // trigger download
     link.click();
   }
-  
+
   return (
     <div className="App">
       <div>
         <h4>Add New Post</h4>
         <input placeholder="Recipe Name"
-          onChange={ e => setRecipeName( e.target.value) } 
-          value={ recipe_name || '' }
-          ref={ recipeNameRef }
+          onChange={e => setRecipeName(e.target.value)}
+          value={recipe_name || ''}
+          ref={recipeNameRef}
         />
         <br />
         <input placeholder="Category"
-          onChange={ e => setCategory( e.target.value) } 
-          value={ category || '' }
-          ref={ categoryRef }
+          onChange={e => setCategory(e.target.value)}
+          value={category || ''}
+          ref={categoryRef}
         />
         <br />
-        <textarea 
+        <textarea
           placeholder="Ingredients"
-          onChange={ e => setIngredient( e.target.value) } 
-          value={ ingredient || '' }
-          ref={ ingredientRef }  
+          onChange={e => setIngredient(e.target.value)}
+          value={ingredient || ''}
+          ref={ingredientRef}
         ></textarea>
         <br />
-        <textarea 
+        <textarea
           placeholder="Directions"
-          onChange={ e => setDirection( e.target.value) } 
-          value={ direction || '' }
-          ref={ directionRef }  
+          onChange={e => setDirection(e.target.value)}
+          value={direction || ''}
+          ref={directionRef}
         ></textarea>
         <br />
-        <textarea 
+        <textarea
           placeholder="Notes"
-          onChange={ e => setNote( e.target.value) } 
-          value={ note || '' }
-          ref={ noteRef }  
+          onChange={e => setNote(e.target.value)}
+          value={note || ''}
+          ref={noteRef}
         ></textarea>
         <br />
-        <button onClick={ addPost }>Add Post</button>
+        <div>
+          <FileUpload />
+        </div>
+        <button onClick={addPost}>Add Post</button>
       </div>
 
       {/* If temp state has got values of recipe_name, category and ingredient for update form show this */}
@@ -229,24 +233,24 @@ function App() {
             <button onClick={updatePost}>Update Post</button>
           </div>
         ) : null}
-      
+
       <div className="posts">
-        { data ? data.map(post => {
-          return(
-            <div key={ post.id } className="post">
-              <h3>{ post.recipe_name }</h3>
-              <img src={ post.image } alt=""></img>
-              <p><b><u>Category:</u></b> { post.category }</p>
-              <p><b><u>Ingredients:</u></b><br></br>{ post.ingredient }</p>
-              <p><b><u>Directions:</u></b><br></br>{ post.direction }</p>
-              <p><b><u>Notes:</u></b><br></br>{ post.note }</p>
-              <button onClick={ () => populatePost(post.id, post.recipe_name, post.category, post.ingredient, post.direction, post.note) }>Edit</button>
-              <button onClick={ () => deletePost(post.id) }>Delete</button>
+        {data ? data.map(post => {
+          return (
+            <div key={post.id} className="post">
+              <h3>{post.recipe_name}</h3>
+              <img src={post.image} alt=""></img>
+              <p><b><u>Category:</u></b> {post.category}</p>
+              <p><b><u>Ingredients:</u></b><br></br>{post.ingredient}</p>
+              <p><b><u>Directions:</u></b><br></br>{post.direction}</p>
+              <p><b><u>Notes:</u></b><br></br>{post.note}</p>
+              <button onClick={() => populatePost(post.id, post.recipe_name, post.category, post.ingredient, post.direction, post.note)}>Edit</button>
+              <button onClick={() => deletePost(post.id)}>Delete</button>
             </div>
           )
-        }) : null }
+        }) : null}
         <div className="btn-download">
-          <button onClick={ e => saveData(data)}>Download Data</button>
+          <button onClick={e => saveData(data)}>Download Data</button>
         </div>
       </div>
     </div>
