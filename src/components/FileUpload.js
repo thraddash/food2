@@ -3,9 +3,10 @@ import Message from './Message';
 import Progress from './Progress';
 import axios from 'axios';
 import "../styles.css";
+import placeholder from '../images/placeholder.png';
 
 const FileUpload = () => {
-  const [file, setFile] = useState('');
+  const [file, setFile] = useState([]);
   const [filename, setFilename] = useState('');
   const [uploadedFile, setUploadedFile] = useState({});
   const [message, setMessage] = useState('');
@@ -14,7 +15,18 @@ const FileUpload = () => {
   const onChange = e => {
     setFile(e.target.files[0]);
     setFilename(e.target.files[0].name);
+    if (e.target.files[0]) {
+      setImg({
+        src: URL.createObjectURL(e.target.files[0]),
+        alt: e.target.files[0].name
+      });
+    }
   };
+
+  const [{ alt, src }, setImg] = useState({
+    src: placeholder,
+    alt: 'upload an Image'
+  });
 
   const onSubmit = async e => {
     e.preventDefault();
@@ -35,7 +47,7 @@ const FileUpload = () => {
           );
         }
       });
-      
+
       // Clear percentage
       setTimeout(() => setUploadPercentage(0), 10000);
 
@@ -58,6 +70,10 @@ const FileUpload = () => {
     <Fragment>
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
+
+        <img className="thumbnail" src={src} alt='' />
+
+
         <div className='custom-file mb-4'>
           <input
             type='file'
@@ -69,7 +85,6 @@ const FileUpload = () => {
             {filename}
           </label>
         </div>
-
         <Progress percentage={uploadPercentage} />
 
         <input
@@ -80,10 +95,10 @@ const FileUpload = () => {
       </form>
       {uploadedFile ? (
         <div className='row mt-5'>
-          <div className='col-md-6 m-auto'>
+          {/* <div className='col-md-6 m-auto'>
             <h3 className='text-center'>{uploadedFile.fileName}</h3>
             <img className='thumbnail' src={uploadedFile.filePath} alt='' />
-          </div>
+          </div> */}
         </div>
       ) : null}
     </Fragment>
