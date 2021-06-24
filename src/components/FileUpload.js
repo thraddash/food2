@@ -71,7 +71,7 @@ const FileUpload = () => {
       {message ? <Message msg={message} /> : null}
       <form onSubmit={onSubmit}>
 
-        <img className="thumbnail" src={src} alt='' />
+        <img className="thumbnail" src={src} alt={alt} />
 
 
         <div className='custom-file mb-4'>

@@ -14,9 +14,11 @@ function App() {
   // Reference
   const recipeNameRef = useRef();
   const categoryRef = useRef();
+  const imageRef = useRef();
   const ingredientRef = useRef();
   const directionRef = useRef();
   const noteRef = useRef();
+  
 
   // State
   const [data, setData] = useState(Data);
@@ -24,6 +26,7 @@ function App() {
   // Temp State
   const [recipe_name, setRecipeName] = useState();
   const [category, setCategory] = useState();
+  const [image, setImage] = useState();
   const [ingredient, setIngredient] = useState();
   const [direction, setDirection] = useState();
   const [note, setNote] = useState();
@@ -31,6 +34,7 @@ function App() {
   const [updateID, setUpdateID] = useState();
   const [updateRecipeName, setUpdateRecipeName] = useState();
   const [updateCategory, setUpdateCategory] = useState();
+  const [updateImage, setUpdateImage] = useState();
   const [updateIngredient, setUpdateIngredient] = useState();
   const [updateDirection, setUpdateDirection] = useState();
   const [updateNote, setUpdateNote] = useState();
@@ -49,12 +53,13 @@ function App() {
   // Add Post
   //////////////////////////////////////
   const addPost = () => {
-    if (recipe_name && category && ingredient) {
+    if (recipe_name || category || image || ingredient || direction || note) {
       // create new post object
       let newPost = {
         "id": uuidv1(),
         "recipe_name": recipe_name,
         "category": category,
+        "image": image,
         "ingredient": ingredient,
         "direction": direction,
         "note": note
@@ -66,6 +71,7 @@ function App() {
       // clear recipe_name and ingredient from state
       setRecipeName();
       setCategory();
+      setImage();
       setIngredient();
       setDirection();
       setNote();
@@ -90,10 +96,11 @@ function App() {
 
   // Populate Post
   //////////////////////////////////////
-  const populatePost = (key, recipe_name, category, ingredient, direction, note) => {
+  const populatePost = (key, recipe_name, category, image, ingredient, direction, note) => {
     setUpdateID(key);
     setUpdateRecipeName(recipe_name);
     setUpdateCategory(category);
+    setUpdateImage(image);
     setUpdateIngredient(ingredient);
     setUpdateDirection(direction);
     setUpdateNote(note);
@@ -107,6 +114,7 @@ function App() {
       "id": updateID,
       "recipe_name": updateRecipeName,
       "category": updateCategory,
+      "image": updateImage,
       "ingredient": updateIngredient,
       "direction": updateDirection,
       "note": updateNote
@@ -121,6 +129,7 @@ function App() {
     setUpdateID();
     setUpdateRecipeName();
     setUpdateCategory();
+    setUpdateImage();
     setUpdateIngredient();
     setUpdateDirection();
     setUpdateNote();
@@ -173,6 +182,12 @@ function App() {
           ref={categoryRef}
         />
         <br />
+        <input placeholder="Image name must match uploaded filename"
+          onChange={e => setImage(e.target.value)}
+          value={image || ''}
+          ref={imageRef}
+        />
+        <br />
         <textarea
           placeholder="Ingredients"
           onChange={e => setIngredient(e.target.value)}
@@ -201,7 +216,7 @@ function App() {
       </div>
 
       {/* If temp state has got values of recipe_name, category and ingredient for update form show this */}
-      {updateRecipeName || updateCategory || updateIngredient || updateDirection || updateNote ?
+      {updateRecipeName || updateCategory || updateImage || updateIngredient || updateDirection || updateNote ?
         (
           <div>
             <h4>Update Post</h4>
@@ -213,6 +228,11 @@ function App() {
             <input placeholder="Category"
               onChange={e => setUpdateCategory(e.target.value)}
               value={updateCategory || ''}
+            />
+            <br />
+            <input placeholder="Image name must match uploaded filename"
+              onChange={e => setUpdateImage(e.target.value)}
+              value={updateImage || ''}
             />
             <br />
             <textarea placeholder="Ingredients"
@@ -239,12 +259,12 @@ function App() {
           return (
             <div key={post.id} className="post">
               <h3>{post.recipe_name}</h3>
-              <img src={post.image} alt=""></img>
+              <img src={'/images/' + post.image} alt=""></img>
               <p><b><u>Category:</u></b> {post.category}</p>
               <p><b><u>Ingredients:</u></b><br></br>{post.ingredient}</p>
               <p><b><u>Directions:</u></b><br></br>{post.direction}</p>
               <p><b><u>Notes:</u></b><br></br>{post.note}</p>
-              <button onClick={() => populatePost(post.id, post.recipe_name, post.category, post.ingredient, post.direction, post.note)}>Edit</button>
+              <button onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note)}>Edit</button>
               <button onClick={() => deletePost(post.id)}>Delete</button>
             </div>
           )
