@@ -58,9 +58,16 @@ p {
   white-space: pre-wrap;
 }
 ```
-- pending (local storage, file designation)     
-- pending (image add delete)   
-- good to have, convert onClick + to add additional textfields and append to json file   
+- local storage, file designation (DONE) 
+- separate features into components (DONE)
+- add menu bar
+- add search bar
+- add component to play video files
+Good to Have:   
+- form validation (text, img size/type)
+- multi image upload
+- delete image/video files   
+- onClick + to add additional textfields and append to json file      
 
 ## Install 
 yarn install  
