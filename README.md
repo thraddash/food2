@@ -63,11 +63,12 @@ p {
 - add menu bar
 - add search bar
 - add component to play video files
-Good to Have:   
+## Good to Have:   
 - form validation (text, img size/type)
 - multi image upload
 - delete image/video files   
-- onClick + to add additional textfields and append to json file      
+- onClick + to add additional textfields and append to json file
+- autoscroll user to top of page when making updates or pops up new window        
 
 ## Install 
 yarn install  
