@@ -126,7 +126,7 @@ class MenuDrawer extends React.Component {
           open={this.state.open}
         >
           <div className={classes.toolbar}>
-            <IconButton style={{ marginTop: '17px', textDecoration: 'none' }} onClick={this.handleDrawerClose}>
+            <IconButton style={{ marginTop: '17px' }} onClick={this.handleDrawerClose}>
               {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
             </IconButton>
           </div>

@@ -9,6 +9,7 @@ body {
 
 .App {
   text-align: center;
+  font-family: sans-serif;
 }
 
 .posts {
@@ -63,4 +64,12 @@ h3 {
 
 p {
   color: #666;
+}
+.thumbnail {
+  height: 150px;
+  width: 150px; 
+}
+a { 
+  text-decoration: none; 
+  color: #4183c4;
 }

@@ -13,7 +13,7 @@ const DownloadJson = () => {
     // create link
     const link = document.createElement('a');
     // point link to file to be downloaded
-    link.download = 'newData.json';
+    link.download = 'RecipesData.json';
     link.href = url;
     // trigger download
     link.click();

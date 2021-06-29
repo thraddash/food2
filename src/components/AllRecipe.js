@@ -1,5 +1,4 @@
-//import '../App.css';
-//import "../styles.css";
+//import ".././App.css";
 import data from "../data.json";
 
 

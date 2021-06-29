@@ -3,7 +3,7 @@ import './App.css';
 //import Data from "./data.json";
 //import { v1 as uuidv1 } from 'uuid';
 //import axios from 'axios';
-import "./styles.css";
+//import "./styles.css";
 //import DownloadJson from './components/DownloadJson';
 //import EditDeleteRecipe from './components/EditDeleteRecipe';
 //import AllRecipe from './components/AllRecipe';
