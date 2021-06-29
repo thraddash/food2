@@ -2,8 +2,7 @@ import React from 'react';
 import ".././App.css";
 
 function Recipes() {
-  return 
-  (
+  return (
     <div className='recipes'>
       <h1>Recipes & Menu</h1>
     </div>

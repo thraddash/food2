@@ -21,8 +21,8 @@ import React from 'react';
   }
 } */
 
-  {/* <div style={styles.header}>
-      <div style={styles.content}> */}
+ /*  {/* <div style={styles.header}>
+      <div style={styles.content}> */
 
 function Home() {
   return (
