@@ -76,7 +76,7 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    marginTop: '64px',
+    marginTop: '65px',
     overflowY: 'auto',
     backgroundColor: theme.palette.background.default,
     padding: `9px ${theme.spacing(4)}px`
