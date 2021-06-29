@@ -1,30 +1,33 @@
 import React from 'react';
-import './App.css';
-//import Data from "./data.json";
-//import { v1 as uuidv1 } from 'uuid';
-//import axios from 'axios';
-import "./styles.css";
-//import DownloadJson from './components/DownloadJson';
-//import EditDeleteRecipe from './components/EditDeleteRecipe';
-//import AllRecipe from './components/AllRecipe';
-import AddRecipe from './components/AddRecipe';
+import MenuDrawer from './components/appMenu/MenuDrawer';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Recipes from './pages/Recipes';
+import Shopping from './pages/Shopping';
+import Pricing from './pages/Pricing';
+import Write from './pages/Write';
+import Edit from './pages/Edit';
+import Videos from './pages/Videos';
+import Download from './pages/Download';
 
-const App = () => {
+function App() {
   return (
-    <div className="ui container grid">
-      <div className="ui row">
-        <div>
-          {/* <DownloadJson /> */}
-        </div>
-        <div className="column">
-         {/*  <EditDeleteRecipe /> */}
-        </div>
-        {/* <center><h2><b>Display All Recipes</b></h2></center> */}
-        <div>
-           <AddRecipe />
-        </div>
-      </div>
-    </div>
+    <>
+      <Router>
+        <MenuDrawer>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/recipes' component={Recipes} />
+            <Route path='/shopping' component={Shopping} />
+            <Route path='/pricing' component={Pricing} />
+            <Route path='/write' component={Write} />
+            <Route path='/edit' component={Edit} />
+            <Route path='/videos' component={Videos} />
+            <Route path='/download' component={Download} />
+          </Switch>
+        </MenuDrawer>
+      </Router>
+    </>
   );
 }
 
