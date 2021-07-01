@@ -154,7 +154,7 @@ function EditDeleteRecipe() {
               <h3>{post.recipe_name}</h3>
               <img src={'/images/' + post.image} alt=""></img>
               <p><b><u>Category:</u></b> {post.category}</p>
-              <p><b><u>Ingredients:</u></b><br></br>{post.ingredient}</p>
+              <p><b><u>Ingredients:</u></b><br></br>{post.ingredients}</p>
               <p><b><u>Directions:</u></b><br></br>{post.direction}</p>
               <p><b><u>Notes:</u></b><br></br>{post.note}</p>
               <button onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note)}>Edit</button>

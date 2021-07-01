@@ -1,15 +1,14 @@
 import React from 'react';
-import { v1 as uuidv1 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
-const RecipeDetails = ({ recipes }) => {
-  return recipes.map(recipe => {
+const RecipeDetails = ({ ingredients }) => {
+  /* return ingredients.map(ingredient => { */
     return (
-      <ul key={uuidv1()} className="recipe-list">
-        <li className="recipe-text">{recipe.text}</li>
-        <li className="recipe-weight">Weight - {recipe.weight}</li>
-      </ul>
+      <div key={uuidv4()} className="ingredient-list">
+        <div className="ingredient-text">{ingredients} </div>
+      </div>
     );
-  });
+ /*  }); */
 };
 
 export default RecipeDetails;

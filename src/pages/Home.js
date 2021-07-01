@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Search from '../components/Search';
+import Recipe from '../components/Recipe';
 import Announcer from '../components/Announcer';
 import ".././App.css";
+import { v4 as uuidv4 } from 'uuid';
 import data from "../data.json";
 
 
@@ -31,15 +33,12 @@ function Home() {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />
-      {data ? filteredData.map((recipe) => (
-        <div key={recipe.id} className="recipe">
-          <ul>
-            <li>{recipe.recipe_name}</li>
-          </ul>
-        </div>
-      )) : null}
+      <div className="recipes">
+        {filteredData !== [] && filteredData.map(recipe =>
+          <Recipe key={uuidv4()} recipe={recipe} />)}
+      </div>
     </div>
-  )
+  );
 }
 
 export default Home;

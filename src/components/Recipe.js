@@ -3,15 +3,12 @@ import RecipeDetails from './RecipeDetails'
 
 const Recipe = ({ recipe }) => {
     const [show, setShow] = useState(false)
-    const { label, image, url, ingredients } = recipe.recipe;
+    const { recipe_name, image, ingredients } = recipe;
 
     return (
         <div className="recipe">
-            <h2>{label}</h2>
-            <img src={image} alt={label} />
-            <a href={url} target="_blank" rel="noopener noreferrer">
-                URL
-            </a>
+            <h2>{recipe_name}</h2>
+            <img src={image} alt={recipe_name} />
             <button onClick={() => setShow(!show)}>Ingredients</button>
             {show && <RecipeDetails ingredients={ingredients} />}
         </div>
