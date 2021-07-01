@@ -1,35 +1,45 @@
-import React from 'react';
-//import ".././App.css";
-/* import background from "../images/test.jpeg"; */
+import React, { useState } from 'react';
+import Search from '../components/Search';
+import Announcer from '../components/Announcer';
+import ".././App.css";
+import data from "../data.json";
 
-/* const styles = {
-  header: {
-    backgroundImage: `url(${background})`,
-    height: '100vh',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
-  },
 
-  content: {
-    height: '100%',
-    width: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-    color: 'white',
-    marginTop: '15px',
-    padding: '9px'
+const filterData = (data, query) => {
+  if (!query) {
+    return data;
   }
-} */
 
- /*  {/* <div style={styles.header}>
-      <div style={styles.content}> */
+  return data.filter((data) => {
+    const dataName = data.recipe_name.toLowerCase();
+    return dataName.includes(query);
+  });
+};
 
 function Home() {
+  const { search } = window.location;
+  const query = new URLSearchParams(search).get('s');
+  const [searchQuery, setSearchQuery] = useState(query || '');
+  const filteredData = filterData(data, searchQuery);
+
   return (
-      <div>
-        <h1>Home</h1>
-      </div>
-  );
+    <div className="App">
+      <Announcer
+        message={`${filteredData.length} data`}
+      />
+      <Search
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
+      {data ? filteredData.map((recipe) => (
+        <div key={recipe.id} className="recipe">
+          <ul>
+            <li>{recipe.recipe_name}</li>
+          </ul>
+        </div>
+      )) : null}
+    </div>
+  )
 }
 
 export default Home;
