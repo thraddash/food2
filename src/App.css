@@ -82,6 +82,7 @@ a {
 
 .todo-add-btn{
   margin-top: 13px;
+  background-color: #4183c4
 }
 
 .visually-hidden {
@@ -95,13 +96,13 @@ a {
 }
 
 h1 {
-  font-size: 8rem;
+  font-size: 1.5rem;
   letter-spacing: 0.1rem;
   font-style: italic;
-  color: #40b48e;
+  color: #4183c4;
   text-shadow: 0 0.2rem 5rem rgb(119, 115, 115);
   text-transform: uppercase;
-  margin: 4rem 0;
+  margin: 1rem 0;
 }
 
 .search-form {

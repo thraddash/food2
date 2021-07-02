@@ -1,8 +1,20 @@
 import { Button, TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { v1 as uuidv1 } from 'uuid';
+import { makeStyles } from '@material-ui/core/styles';
+import AddIcon from '@material-ui/icons/Add';
+import '../../App.css';
+
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
+
+//import '../../App.css';
 
 function TodoForm({ addTodo }) {
+  const classes = useStyles();
   const [todo, setTodo] = useState({
     id: "",
     task: "",
@@ -33,7 +45,17 @@ function TodoForm({ addTodo }) {
         value={todo.task}
         onChange={handleTaskInputChange}
       />
-      <Button className="todo-add-btn" onClick={handleSubmit}>Add</Button>
+      <Button
+        className="todo-add-btn"
+        size="small"
+        variant="contained"
+        style={{ color: '#ffffff', backgroundColor: '#4183c4' }}
+        className={classes.button}
+        startIcon={<AddIcon />}
+        onClick={handleSubmit}
+      >
+        Add
+      </Button>
     </form>
   );
 }
