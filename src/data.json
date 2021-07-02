@@ -25,5 +25,27 @@
     "ingredients": "Ribeye",
     "direction": "raw",
     "note": "add salt /sugar"
+  },
+  {
+    "id": "a959f820-dadf-11eb-b348-33baa2ef66a7",
+    "recipe_name": "Onion Pancake",
+    "category": "Breakfast",
+    "image": "onion_pancake.jpg",
+    "ingredient": "flour",
+    "direction": "flour\nwater\nonion"
+  },
+  {
+    "id": "332c8880-dae3-11eb-8715-05c307323aca",
+    "recipe_name": "Egg Plant",
+    "category": "Dinner",
+    "image": "eggplant.jpg",
+    "ingredient": "egg plant"
+  },
+  {
+    "id": "4b3814d0-dae3-11eb-8715-05c307323aca",
+    "recipe_name": "Food",
+    "category": "Food",
+    "image": "food.jpg",
+    "ingredient": "spring roll\nmint leaves\n"
   }
 ]

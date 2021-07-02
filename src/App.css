@@ -158,7 +158,7 @@ h1 {
 }
 
 .recipes {
-  width: 90%;
+  /* width: 90%; */
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -167,7 +167,8 @@ h1 {
 }
 
 .recipe {
-  width: 30rem;
+  /* width: 2%;
+  height: auto; */
   margin: 3rem;
   display: flex;
   flex-direction: column;
@@ -186,7 +187,7 @@ h1 {
   top: 2.5rem;
   left: 2.5rem;
   right: 2.5rem;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 400;
   text-shadow: 0 0.5rem 0.5rem #555;
   color: #fff;
@@ -194,7 +195,8 @@ h1 {
 
 .recipe img {
   border-radius: 0.5rem;
-  object-fit: cover;
+  
+  /* object-fit: cover; */
 }
 
 .recipe a {
@@ -203,7 +205,7 @@ h1 {
 }
 
 .recipe button {
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
   color: #fff;
   background-color: #40b48e;
