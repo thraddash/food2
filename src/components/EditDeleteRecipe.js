@@ -2,14 +2,23 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 import Data from "../data.json";
 import axios from 'axios';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+  button: {
+    margin: theme.spacing(1),
+  },
+}));
 
 function EditDeleteRecipe() {
-
+  const classes = useStyles();
   // Timestamp
   //const timestamp = Date.now();
   //console.log(new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(timestamp));
-  
+
   // State
   const [data, setData] = useState(Data);
 
@@ -58,7 +67,7 @@ function EditDeleteRecipe() {
 
   // Cancel Post
   const cancelPost = () => {
-      window.location.reload(false);
+    window.location.reload(false);
   }
 
   // Update Post
@@ -146,7 +155,7 @@ function EditDeleteRecipe() {
             <button onClick={cancelPost}>Cancel</button>
           </div>
         ) : null}
-      
+
       {<div className="posts">
         {data ? data.map(post => {
           return (
@@ -157,14 +166,32 @@ function EditDeleteRecipe() {
               <p><b><u>Ingredients:</u></b><br></br>{post.ingredients}</p>
               <p><b><u>Directions:</u></b><br></br>{post.direction}</p>
               <p><b><u>Notes:</u></b><br></br>{post.note}</p>
-              <button onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note)}>Edit</button>
-              <button onClick={() => deletePost(post.id)}>Delete</button>
+              <Button
+                size="small"
+                variant="contained"
+                color=""
+                className={classes.button}
+                startIcon={<EditIcon />}
+                onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note)}
+              >
+                Edit
+              </Button>
+              <Button
+                size="small"
+                variant="contained"
+                color=""
+                className={classes.button}
+                startIcon={<DeleteIcon />}
+                onClick={() => deletePost(post.id)}
+              >
+                Delete
+              </Button>
             </div>
           )
         }) : null}
-        
+
       </div>}
-      
+
     </div>
   );
 }
