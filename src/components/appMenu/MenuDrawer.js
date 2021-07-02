@@ -78,7 +78,7 @@ const styles = theme => ({
     flexGrow: 1,
     marginTop: '65px',
     overflowY: 'auto',
-    backgroundColor: theme.palette.background.default,
+    backgroundColor: 'theme.palette.background.default',
     padding: `9px ${theme.spacing(4)}px`
   },
 });
@@ -101,7 +101,7 @@ class MenuDrawer extends React.Component {
 
     return (
       <div className={classes.root}>
-        <AppBar
+        <AppBar style={{background:'#4183c4'}}
           elevation={0}
           position="absolute"
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}

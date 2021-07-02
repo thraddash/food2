@@ -35,7 +35,7 @@ button {
   background-color: #ccc;
   color: #555;
   border-radius: 4px;
-  padding: 10px 20px;
+  padding: 10px 10px;
   margin: 1px;
   border: none;
   cursor: pointer;
@@ -43,7 +43,7 @@ button {
 }
 
 button:hover {
-  background-color: #000;
+  background-color: #49d1a4;
   color: #fff;
 }
 
@@ -80,10 +80,10 @@ a {
   padding-left: 5%;
 }
 
-.todo-add-btn{
+/* .todo-add-btn{
   margin-top: 13px;
   background-color: #4183c4
-}
+} */
 
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -96,13 +96,13 @@ a {
 }
 
 h1 {
-  font-size: 1.5rem;
-  letter-spacing: 0.1rem;
-  font-style: italic;
+  font-size: 1.3rem;
+ /*  letter-spacing: 0.1rem; */
+  /* font-style: italic; */
   color: #4183c4;
-  text-shadow: 0 0.2rem 5rem rgb(119, 115, 115);
-  text-transform: uppercase;
-  margin: 1rem 0;
+/*   text-shadow: 0 0.2rem 5rem rgb(119, 115, 115); */
+  /* text-transform: uppercase; */
+  margin: .5rem 0;
 }
 
 .search-form {
@@ -134,6 +134,15 @@ h1 {
   font-weight: 400;
   text-transform: uppercase;
   text-align: center;
+}
+
+.search-btn{
+  /* font-size: 1.5rem; */
+  color: #fff;
+  background-color: #40b48e;
+  border: none;
+  /* border-radius: 0.5rem; */
+  /* height: 3rem; */
 }
 
 .search-form input {
@@ -213,6 +222,11 @@ h1 {
   border: none;
   border-radius: 0.5rem;
   height: 3rem;
+}
+
+.recipe button:hover {
+  background-color: #49d1a4;
+  color: #fff;
 }
 
 .ingredient-list {

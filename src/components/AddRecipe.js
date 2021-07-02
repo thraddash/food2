@@ -174,7 +174,7 @@ function AddRecipe() {
   return (
     <div className="App">
       <div>
-        <h4>Add New Post</h4>
+        <h1>Add New Post</h1>
         <input placeholder="Recipe Name"
           onChange={e => setRecipeName(e.target.value)}
           value={recipe_name || ''}

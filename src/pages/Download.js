@@ -1,12 +1,12 @@
 import React from 'react';
-import ".././App.css";
 import DownloadJson from '../components/DownloadJson';
+import ".././App.css";
 
 function Download() {
   return (
     <div className='download' >
       <center>
-        <h3>Download Recipes JSON file</h3>
+        <h1>Download Recipes JSON file</h1>
       <DownloadJson />
       </center>
     </div>

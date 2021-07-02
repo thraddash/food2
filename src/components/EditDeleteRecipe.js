@@ -169,7 +169,7 @@ function EditDeleteRecipe() {
               <Button
                 size="small"
                 variant="contained"
-                color=""
+                color="default"
                 className={classes.button}
                 startIcon={<EditIcon />}
                 onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note)}
@@ -179,7 +179,7 @@ function EditDeleteRecipe() {
               <Button
                 size="small"
                 variant="contained"
-                color=""
+                color="default"
                 className={classes.button}
                 startIcon={<DeleteIcon />}
                 onClick={() => deletePost(post.id)}

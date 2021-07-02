@@ -1,11 +1,11 @@
 import React from 'react';
-import ".././App.css";
 import EditDeleteRecipe from '../components/EditDeleteRecipe';
+import ".././App.css";
 
 function Edit() {
   return (
     <div className='edit'>
-      <h3>Edit/Delete/Update Recipes</h3>
+      <h1>Edit/Delete/Update Recipes</h1>
       <EditDeleteRecipe />
     </div>
   );
