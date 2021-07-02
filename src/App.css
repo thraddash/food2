@@ -105,7 +105,7 @@ h1 {
 }
 
 .search-form {
-  width: 30rem;
+  width: 18rem;
   height: 3rem;
   display: flex;
   justify-content: center;
@@ -136,7 +136,7 @@ h1 {
 }
 
 .search-form input {
-  font-size: 18px;
+  font-size: 16px;
   border: none;
   border-bottom: 0.1rem solid #ccc;
   margin: 0 0.5rem;
@@ -169,11 +169,11 @@ h1 {
 .recipe {
   /* width: 2%;
   height: auto; */
-  margin: 3rem;
+  margin: 1rem;
   display: flex;
   flex-direction: column;
   background-color: #d3d3d3;
-  padding: 2rem;
+  padding: 1rem;
   position: relative;
   border-radius: 0.5rem;
   box-shadow: 2rem 3rem 5rem #aaa;
