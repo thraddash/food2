@@ -11,8 +11,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//import '../../App.css';
-
 function TodoForm({ addTodo }) {
   const classes = useStyles();
   const [todo, setTodo] = useState({
@@ -46,7 +44,6 @@ function TodoForm({ addTodo }) {
         onChange={handleTaskInputChange}
       />
       <Button
-        className="todo-add-btn"
         size="small"
         variant="contained"
         style={{ color: '#ffffff', backgroundColor: '#4183c4' }}
