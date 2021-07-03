@@ -3,7 +3,7 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import HomeIcon from '@material-ui/icons/Home';
+/* import HomeIcon from '@material-ui/icons/Home'; */
 import DownloadIcon from '@material-ui/icons/GetApp';
 import EditIcon from '@material-ui/icons/BorderColor';
 import VideoIcon from '@material-ui/icons/Videocam';
@@ -19,20 +19,12 @@ export const menuItems = (
     <Link to={'/'}>
       <ListItem button>
         <ListItemIcon>
-          <HomeIcon />
+          <RestaurantIcon />
         </ListItemIcon>
-        <ListItemText primary="Home" />
+        <ListItemText primary="Search Recipes" />
       </ListItem>
     </Link>
     <Divider />
-    <Link to={'/recipes'}>
-      <ListItem button>
-        <ListItemIcon>
-          <RestaurantIcon />
-        </ListItemIcon>
-        <ListItemText primary="Recipes & Menu" />
-      </ListItem>
-    </Link>
     <Link to={'/shopping'}>
       <ListItem button>
         <ListItemIcon>

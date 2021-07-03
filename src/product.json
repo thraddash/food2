@@ -1,0 +1,12 @@
+[
+  {
+    "id": "79cb03c0-dbba-11eb-aeba-a533ee8a8f63",
+    "timestamp": "07/02/2020",
+    "name": "name",
+    "amount": "amount",
+    "price": "price",
+    "season": "season",
+    "location": "location",
+    "note": "notes"
+  }
+]
