@@ -3,8 +3,42 @@ import ".././App.css";
 import Product from "../product.json";
 import { v1 as uuidv1 } from 'uuid';
 import axios from 'axios';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  },
+}));
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+];
 
 function Pricing() {
+  const classes = useStyles();
+
   // Reference
   // Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(current_date)
   const current_date = Date.now();
@@ -191,50 +225,94 @@ function Pricing() {
     <div className='pricing'>
       <div>
         <h1>Pricing & Location</h1>
-        <input placeholder={'Date ' + date}
-          onChange={e => setTime(e.target.value)}
-          value={time || ''}
-          ref={timeRef}
-        />
+        <TableContainer component={Paper}>
+          <Table className={classes.table} size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Dessert (100g serving)</TableCell>
+                <TableCell align="right">Calories</TableCell>
+                <TableCell align="right">Fat&nbsp;(g)</TableCell>
+                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                <TableCell align="right">Protein&nbsp;(g)</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.name}>
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell align="right">{row.calories}</TableCell>
+                  <TableCell align="right">{row.fat}</TableCell>
+                  <TableCell align="right">{row.carbs}</TableCell>
+                  <TableCell align="right">{row.protein}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+
         <br />
-        <input placeholder="Name"
-          onChange={e => setName(e.target.value)}
-          value={name || ''}
-          ref={nameRef}
-        />
+        <div className={classes.root}>
+          <Grid container spacing={3}>
+            <Grid item xs={6}>
+              <Paper className={classes.paper}>
+                <input placeholder={'Date ' + date}
+                  onChange={e => setTime(e.target.value)}
+                  value={time || ''}
+                  ref={timeRef}
+                />
+
+                <input placeholder="Name"
+                  onChange={e => setName(e.target.value)}
+                  value={name || ''}
+                  ref={nameRef}
+                />
+
+                <input placeholder="Amount"
+                  onChange={e => setAmount(e.target.value)}
+                  value={amount || ''}
+                  ref={amountRef}
+                />
+
+                <input placeholder="Price"
+                  onChange={e => setPrice(e.target.value)}
+                  value={price || ''}
+                  ref={priceRef}
+                />
+                <br />
+                <br />
+                <br />
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper className={classes.paper}>
+                <input placeholder="In Season"
+                  onChange={e => setSeason(e.target.value)}
+                  value={season || ''}
+                  ref={seasonRef}
+                />
+                <input placeholder="Location"
+                  onChange={e => setLocation(e.target.value)}
+                  value={location || ''}
+                  ref={locationRef}
+                />
+
+                <textarea
+                  placeholder="Note"
+                  onChange={e => setNote(e.target.value)}
+                  value={note || ''}
+                  ref={noteRef}
+                ></textarea>
+              </Paper>
+            </Grid>
+          </Grid>
+        </div>
+
         <br />
-        <input placeholder="Amount"
-          onChange={e => setAmount(e.target.value)}
-          value={amount || ''}
-          ref={amountRef}
-        />
-        <br />
-        <input placeholder="Price"
-          onChange={e => setPrice(e.target.value)}
-          value={price || ''}
-          ref={priceRef}
-        />
-        <br />
-        <input placeholder="In Season"
-          onChange={e => setSeason(e.target.value)}
-          value={season || ''}
-          ref={seasonRef}
-        />
-        <br />
-        <input placeholder="Location"
-          onChange={e => setLocation(e.target.value)}
-          value={location || ''}
-          ref={locationRef}
-        />
-        <br />
-        <textarea
-          placeholder="Note"
-          onChange={e => setNote(e.target.value)}
-          value={note || ''}
-          ref={noteRef}
-        ></textarea>
-        <br />
-        <button onClick={addPost}>Add Post</button>
+        <div style={{ display: "flex" }}>
+          <button onClick={addPost} style={{ marginRight: "auto" }}>Add Post</button>
+        </div>
       </div>
 
       {
