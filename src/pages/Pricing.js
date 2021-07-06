@@ -12,6 +12,13 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import PropTypes from 'prop-types';
+import Box from '@material-ui/core/Box';
+import Collapse from '@material-ui/core/Collapse';
+import IconButton from '@material-ui/core/IconButton';
+import Typography from '@material-ui/core/Typography';
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -229,23 +236,21 @@ function Pricing() {
           <Table className={classes.table} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
-                <TableCell>Dessert (100g serving)</TableCell>
-                <TableCell align="right">Calories</TableCell>
-                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
-                <TableCell align="right">Protein&nbsp;(g)</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell>Name</TableCell>
+                <TableCell>Price</TableCell>
+                <TableCell>Amount</TableCell>
+                <TableCell>In Season</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.name}
-                  </TableCell>
-                  <TableCell align="right">{row.calories}</TableCell>
-                  <TableCell align="right">{row.fat}</TableCell>
-                  <TableCell align="right">{row.carbs}</TableCell>
-                  <TableCell align="right">{row.protein}</TableCell>
+              {product.map((item) => (
+                <TableRow key={item.id}>
+                  <TableCell>{item.timestamp}</TableCell>
+                  <TableCell>{item.name}</TableCell>
+                  <TableCell>{item.price}</TableCell>
+                  <TableCell>{item.amount}</TableCell>
+                  <TableCell>{item.season}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -253,61 +258,51 @@ function Pricing() {
         </TableContainer>
 
         <br />
-        <div className={classes.root}>
-          <Grid container spacing={3}>
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>
-                <input placeholder={'Date ' + date}
-                  onChange={e => setTime(e.target.value)}
-                  value={time || ''}
-                  ref={timeRef}
-                />
+        Date: <input placeholder={'Enter Date ' + date}
+          onChange={e => setTime(e.target.value)}
+          value={time || ''}
+          ref={timeRef} style={{ width: 'auto', height: '7px', border: '0' }}
+        />
 
-                <input placeholder="Name"
-                  onChange={e => setName(e.target.value)}
-                  value={name || ''}
-                  ref={nameRef}
-                />
+        <br />
+        Name: <input placeholder="Name of Item"
+          onChange={e => setName(e.target.value)}
+          value={name || ''}
+          ref={nameRef} style={{ width: 'auto', height: '7px', border: '0' }}
+        />
+        <br />
+        Price: <input placeholder="Enter Price"
+          onChange={e => setPrice(e.target.value)}
+          value={price || ''}
+          ref={priceRef} style={{ width: 'auto', height: '7px', border: '0' }}
+        />
+        <br />
+        Amount: <input placeholder="Amount"
+          onChange={e => setAmount(e.target.value)}
+          value={amount || ''}
+          ref={amountRef} style={{ width: 'auto', height: '7px', border: '0' }}
+        />
+        <br />
+        In Season: <input placeholder="In Season"
+          onChange={e => setSeason(e.target.value)}
+          value={season || ''}
+          ref={seasonRef} style={{ width: 'auto', height: '7px', border: '0' }}
+        />
+        <br />
+        Location: <input placeholder="Location"
+          onChange={e => setLocation(e.target.value)}
+          value={location || ''}
+          ref={locationRef} style={{ width: 'auto', height: '7px', border: '0' }}
+        />
+        <br />
+         <textarea
+          placeholder="Additional Info"
+          onChange={e => setNote(e.target.value)}
+          value={note || ''}
+          ref={noteRef} style={{ width: 'auto' }}
+        ></textarea>
+    
 
-                <input placeholder="Amount"
-                  onChange={e => setAmount(e.target.value)}
-                  value={amount || ''}
-                  ref={amountRef}
-                />
-
-                <input placeholder="Price"
-                  onChange={e => setPrice(e.target.value)}
-                  value={price || ''}
-                  ref={priceRef}
-                />
-                <br />
-                <br />
-                <br />
-              </Paper>
-            </Grid>
-            <Grid item xs={6}>
-              <Paper className={classes.paper}>
-                <input placeholder="In Season"
-                  onChange={e => setSeason(e.target.value)}
-                  value={season || ''}
-                  ref={seasonRef}
-                />
-                <input placeholder="Location"
-                  onChange={e => setLocation(e.target.value)}
-                  value={location || ''}
-                  ref={locationRef}
-                />
-
-                <textarea
-                  placeholder="Note"
-                  onChange={e => setNote(e.target.value)}
-                  value={note || ''}
-                  ref={noteRef}
-                ></textarea>
-              </Paper>
-            </Grid>
-          </Grid>
-        </div>
 
         <br />
         <div style={{ display: "flex" }}>
@@ -320,12 +315,12 @@ function Pricing() {
           (
             <div>
               <h4>Update Post</h4>
-              <input placeholder={'Date ' + date}
+              Date: <input placeholder={'Date ' + date}
                 onChange={e => setUpdateTime(e.target.value)}
                 value={updateTime || ''}
               />
               <br />
-              <input placeholder="Name"
+              <input placeholder="Name of Item"
                 onChange={e => setUpdateName(e.target.value)}
                 value={updateName || ''}
               />
@@ -335,7 +330,7 @@ function Pricing() {
                 value={updateAmount || ''}
               />
               <br />
-              <input placeholder="Price"
+              <input placeholder="Pricing"
                 onChange={e => setUpdatePrice(e.target.value)}
                 value={updatePrice || ''}
               />
@@ -351,7 +346,7 @@ function Pricing() {
               />
               <br />
               <textarea
-                placeholder="Note"
+                placeholder="Additional Info"
                 onChange={e => setUpdateNote(e.target.value)}
                 value={updateNote || ''}
               ></textarea>
