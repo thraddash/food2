@@ -11,14 +11,23 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import PropTypes from 'prop-types';
+/* import PropTypes from 'prop-types';
 import Box from '@material-ui/core/Box';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'; */
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
+
+/* const useRowStyles = makeStyles({
+  root: {
+    '& > *': {
+      borderBottom: 'unset',
+    },
+  },
+}); */
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -31,19 +40,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
 function Pricing() {
+  /* const { row } = props;
+  const [open, setOpen] = React.useState(false); */
+  /* const classes = useRowStyles(); */
   const classes = useStyles();
 
   // Reference
@@ -56,7 +56,6 @@ function Pricing() {
   const amountRef = useRef();
   const priceRef = useRef();
   const seasonRef = useRef();
-  const locationRef = useRef();
   const noteRef = useRef();
 
   // State 
@@ -68,7 +67,6 @@ function Pricing() {
   const [amount, setAmount] = useState();
   const [price, setPrice] = useState();
   const [season, setSeason] = useState();
-  const [location, setLocation] = useState();
   const [note, setNote] = useState();
 
   const [updateID, setUpdateID] = useState();
@@ -77,7 +75,6 @@ function Pricing() {
   const [updateAmount, setUpdateAmount] = useState();
   const [updatePrice, setUpdatePrice] = useState();
   const [updateSeason, setUpdateSeason] = useState();
-  const [updateLocation, setUpdateLocation] = useState();
   const [updateNote, setUpdateNote] = useState();
 
   // Effect
@@ -91,7 +88,6 @@ function Pricing() {
     amountRef.current.value = null;
     priceRef.current.value = null;
     seasonRef.current.value = null;
-    locationRef.current.value = null;
     noteRef.current.value = null;
   }, [product]);
 
@@ -109,7 +105,6 @@ function Pricing() {
         "amount": amount,
         "price": price,
         "season": season,
-        "location": location,
         "note": note
       }
       // merge new post with copy of old state
@@ -122,7 +117,6 @@ function Pricing() {
       setAmount();
       setPrice();
       setSeason();
-      setLocation();
       setNote();
 
       // update write to json file
@@ -148,14 +142,13 @@ function Pricing() {
 
   // Populate Post
   ////////////////////////////////////////// 
-  const populatePost = (key, time, name, amount, price, season, location, note) => {
+  const populatePost = (key, time, name, amount, price, season, note) => {
     setUpdateID(key);
     setUpdateTime(time);
     setUpdateName(name);
     setUpdateAmount(amount);
     setUpdatePrice(price);
     setUpdateSeason(season);
-    setUpdateLocation(location);
     setUpdateNote(note);
   }
 
@@ -175,7 +168,6 @@ function Pricing() {
       "amount": updateAmount,
       "price": updatePrice,
       "season": updateSeason,
-      "location": updateLocation,
       "note": updateNote
     }
     // remove old post with same ID and get the remaining product /// filter 
@@ -191,7 +183,6 @@ function Pricing() {
     setUpdateAmount();
     setUpdatePrice();
     setUpdateSeason();
-    setUpdateLocation();
     setUpdateNote();
 
     // update write to json file
@@ -229,126 +220,126 @@ function Pricing() {
   }
 
   return (
-    <div className='pricing'>
-      <div>
-        <h1>Pricing & Location</h1>
-        <TableContainer component={Paper}>
-          <Table className={classes.table} size="small" aria-label="a dense table">
-            <TableHead>
-              <TableRow>
-                <TableCell>Date</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Price</TableCell>
-                <TableCell>Amount</TableCell>
-                <TableCell>In Season</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {product.map((item) => (
-                <TableRow key={item.id}>
-                  <TableCell>{item.timestamp}</TableCell>
-                  <TableCell>{item.name}</TableCell>
-                  <TableCell>{item.price}</TableCell>
-                  <TableCell>{item.amount}</TableCell>
-                  <TableCell>{item.season}</TableCell>
+
+    <React.Fragment>
+      <h1>Pricing & Location</h1>
+      <TableContainer component={Paper}>
+        <Table className={classes.table} size="small" aria-label="a dense table">
+          <TableHead>
+            <TableRow className={classes.root}>
+              <TableCell>Date</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Price</TableCell>
+              <TableCell>Amount</TableCell>
+              <TableCell>In Season</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {product ? product.map(post => {
+              return (
+                <TableRow key={post.id}>
+                  <TableCell>{post.timestamp}</TableCell>
+                  <TableCell>{post.name}</TableCell>
+                  <TableCell>{post.price}</TableCell>
+                  <TableCell>{post.amount}</TableCell>
+                  <TableCell>{post.season}</TableCell>
+                  <TableCell key={post.id} className="post">
+                    <button onClick={() => populatePost(post.id, post.timestamp, post.name, post.amount, post.price, post.season, post.location, post.note)}><EditIcon fontSize="small" color="primary" /></button>
+                    <button onClick={() => deletePost(post.id)}><DeleteIcon fontSize="small" color="secondary" /></button>
+                  </TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              )
+            }) : null}
+          </TableBody>
+        </Table>
+      </TableContainer>
 
-        <br />
-        Date: <input placeholder={'Enter Date ' + date}
-          onChange={e => setTime(e.target.value)}
-          value={time || ''}
-          ref={timeRef} style={{ width: 'auto', height: '7px', border: '0' }}
-        />
+      <br />
+      Date: <input placeholder={'Enter ' + date}
+        onChange={e => setTime(e.target.value)}
+        value={time || ''}
+        ref={timeRef} style={{ width: 'auto', height: '5px', border: '0' }}
+      />
 
-        <br />
-        Name: <input placeholder="Name of Item"
-          onChange={e => setName(e.target.value)}
-          value={name || ''}
-          ref={nameRef} style={{ width: 'auto', height: '7px', border: '0' }}
-        />
-        <br />
-        Price: <input placeholder="Enter Price"
-          onChange={e => setPrice(e.target.value)}
-          value={price || ''}
-          ref={priceRef} style={{ width: 'auto', height: '7px', border: '0' }}
-        />
-        <br />
-        Amount: <input placeholder="Amount"
-          onChange={e => setAmount(e.target.value)}
-          value={amount || ''}
-          ref={amountRef} style={{ width: 'auto', height: '7px', border: '0' }}
-        />
-        <br />
-        In Season: <input placeholder="In Season"
-          onChange={e => setSeason(e.target.value)}
-          value={season || ''}
-          ref={seasonRef} style={{ width: 'auto', height: '7px', border: '0' }}
-        />
-        <br />
-        Location: <input placeholder="Location"
-          onChange={e => setLocation(e.target.value)}
-          value={location || ''}
-          ref={locationRef} style={{ width: 'auto', height: '7px', border: '0' }}
-        />
-        <br />
-         <textarea
-          placeholder="Additional Info"
-          onChange={e => setNote(e.target.value)}
-          value={note || ''}
-          ref={noteRef} style={{ width: 'auto' }}
-        ></textarea>
-    
-
-
-        <br />
-        <div style={{ display: "flex" }}>
-          <button onClick={addPost} style={{ marginRight: "auto" }}>Add Post</button>
-        </div>
+      <br />
+      Name: <input placeholder="Name of Item"
+        onChange={e => setName(e.target.value)}
+        value={name || ''}
+        ref={nameRef} style={{ width: 'auto', height: '5px', border: '0' }}
+      />
+      <br />
+      Price: <input placeholder="Enter Price"
+        onChange={e => setPrice(e.target.value)}
+        value={price || ''}
+        ref={priceRef} style={{ width: 'auto', height: '5px', border: '0' }}
+      />
+      <br />
+      Amount: <input placeholder="Amount"
+        onChange={e => setAmount(e.target.value)}
+        value={amount || ''}
+        ref={amountRef} style={{ width: 'auto', height: '5px', border: '0' }}
+      />
+      <br />
+      In Season: <input placeholder="In Season"
+        onChange={e => setSeason(e.target.value)}
+        value={season || ''}
+        ref={seasonRef} style={{ width: 'auto', height: '5px', border: '0' }}
+      />
+      <br />
+      <textarea
+        placeholder="Additional Notes"
+        onChange={e => setNote(e.target.value)}
+        value={note || ''}
+        ref={noteRef} style={{ width: 'auto' }}
+      ></textarea>
+      <br />
+      <div style={{ display: "flex" }}>
+        <button onClick={addPost} style={{ marginRight: "auto" }}>Add Post</button>  
       </div>
+      <button onClick={e => saveProduct(product)}>Download Product</button>
+
 
       {
-        updateTime || updateName || updateAmount || updatePrice || updateSeason || updateLocation || updateNote ?
+        updateTime || updateName || updateAmount || updatePrice || updateSeason || updateNote ?
           (
             <div>
               <h4>Update Post</h4>
               Date: <input placeholder={'Date ' + date}
                 onChange={e => setUpdateTime(e.target.value)}
                 value={updateTime || ''}
+                style={{ width: 'auto', height: '5px' }}
               />
               <br />
-              <input placeholder="Name of Item"
+              Name: <input placeholder="Name of Item"
                 onChange={e => setUpdateName(e.target.value)}
                 value={updateName || ''}
+                style={{ width: 'auto', height: '5px' }}
               />
               <br />
-              <input placeholder="Amount"
+              Amount: <input placeholder="Amount"
                 onChange={e => setUpdateAmount(e.target.value)}
                 value={updateAmount || ''}
+                style={{ width: 'auto', height: '5px' }}
               />
               <br />
-              <input placeholder="Pricing"
+              Pricing: <input placeholder="Pricing"
                 onChange={e => setUpdatePrice(e.target.value)}
                 value={updatePrice || ''}
+                style={{ width: 'auto', height: '5px' }}
               />
               <br />
-              <input placeholder="In Season"
+              In Season: <input placeholder="In Season"
                 onChange={e => setUpdateSeason(e.target.value)}
                 value={updateSeason || ''}
+                style={{ width: 'auto', height: '5px' }}
               />
               <br />
-              <input placeholder="Location"
-                onChange={e => setUpdateLocation(e.target.value)}
-                value={updateLocation || ''}
-              />
-              <br />
-              <textarea
-                placeholder="Additional Info"
+            
+              Notes: <textarea
+                placeholder="Additional Notes"
                 onChange={e => setUpdateNote(e.target.value)}
                 value={updateNote || ''}
+                style={{ width: 'auto' }}
               ></textarea>
               <br />
               <button onClick={updatePost}>Update Post</button>
@@ -356,28 +347,7 @@ function Pricing() {
             </div>
           ) : null
       }
-
-      <div className="posts">
-        {product ? product.map(post => {
-          return (
-            <div key={post.id} className="post">
-              <p>{post.timestamp}</p>
-              <p>{post.name}</p>
-              <p>{post.amount}</p>
-              <p>{post.price}</p>
-              <p>{post.season}</p>
-              <p>{post.location}</p>
-              <p>{post.note}</p>
-              <button onClick={() => populatePost(post.id, post.timestamp, post.name, post.amount, post.price, post.season, post.location, post.note)}>Edit</button>
-              <button onClick={() => deletePost(post.id)}>Delete</button>
-            </div>
-          )
-        }) : null}
-        <div className="btn-download">
-          <button onClick={e => saveProduct(product)}>Download Product</button>
-        </div>
-      </div>
-    </div>
+    </React.Fragment>
   );
 }
 
