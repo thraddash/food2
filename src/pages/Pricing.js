@@ -230,7 +230,6 @@ function Pricing() {
               <TableCell>Name</TableCell>
               <TableCell>Price</TableCell>
               <TableCell>Amount</TableCell>
-              <TableCell>In Season</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -240,7 +239,6 @@ function Pricing() {
                   <TableCell>{post.name}</TableCell>
                   <TableCell>{post.price}</TableCell>
                   <TableCell>{post.amount}</TableCell>
-                  <TableCell>{post.season}</TableCell>
                   <TableCell key={post.id} className="post">
                     <button onClick={() => populatePost(post.id, post.timestamp, post.name, post.amount, post.price, post.season, post.location, post.note)}><EditIcon fontSize="small" color="primary" /></button>
                     <button onClick={() => deletePost(post.id)}><DeleteIcon fontSize="small" color="secondary" /></button>
