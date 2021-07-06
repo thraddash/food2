@@ -227,7 +227,6 @@ function Pricing() {
         <Table className={classes.table} size="small" aria-label="a dense table">
           <TableHead>
             <TableRow className={classes.root}>
-              <TableCell>Date</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Price</TableCell>
               <TableCell>Amount</TableCell>
@@ -238,7 +237,6 @@ function Pricing() {
             {product ? product.map(post => {
               return (
                 <TableRow key={post.id}>
-                  <TableCell>{post.timestamp}</TableCell>
                   <TableCell>{post.name}</TableCell>
                   <TableCell>{post.price}</TableCell>
                   <TableCell>{post.amount}</TableCell>
@@ -280,7 +278,7 @@ function Pricing() {
         ref={amountRef} style={{ width: 'auto', height: '5px', border: '0' }}
       />
       <br />
-      In Season: <input placeholder="In Season"
+      In Season: <input placeholder="Enter Month"
         onChange={e => setSeason(e.target.value)}
         value={season || ''}
         ref={seasonRef} style={{ width: 'auto', height: '5px', border: '0' }}
@@ -328,7 +326,7 @@ function Pricing() {
                 style={{ width: 'auto', height: '5px' }}
               />
               <br />
-              In Season: <input placeholder="In Season"
+              In Season: <input placeholder="Enter Month"
                 onChange={e => setUpdateSeason(e.target.value)}
                 value={updateSeason || ''}
                 style={{ width: 'auto', height: '5px' }}
