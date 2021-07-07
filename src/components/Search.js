@@ -22,8 +22,8 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => {
                 </span>
             </label>
             <input
-                value={searchQuery}
-                onInput={(e) => setSearchQuery(e.target.value)}
+                value={searchQuery.toLowerCase()}
+                onInput={(e) => setSearchQuery(e.target.value.toLowerCase())}
                 type="text"
                 id="header-search"
                 placeholder="Search Recipes..."
