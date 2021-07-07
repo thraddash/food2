@@ -33,12 +33,12 @@ export const menuItems = (
         <ListItemText primary="Shopping List" />
       </ListItem>
     </Link>
-    <Link to={'/pricing'}>
+    <Link to={'/products'}>
       <ListItem button>
         <ListItemIcon>
           <MoneyIcon />
         </ListItemIcon>
-        <ListItemText primary="Pricing/Location" />
+        <ListItemText primary="Products Info" />
       </ListItem>
     </Link>
     <Divider />

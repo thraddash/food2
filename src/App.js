@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Recipes from './pages/Recipes';
 import Shopping from './pages/Shopping';
-import Pricing from './pages/Pricing';
+import Products from './pages/Products';
 import Write from './pages/Write';
 import Edit from './pages/Edit';
 import Videos from './pages/Videos';
@@ -19,7 +19,7 @@ function App() {
             <Route path='/' exact component={Home} />
             <Route path='/recipes' component={Recipes} />
             <Route path='/shopping' component={Shopping} />
-            <Route path='/pricing' component={Pricing} />
+            <Route path='/products' component={Products} />
             <Route path='/write' component={Write} />
             <Route path='/edit' component={Edit} />
             <Route path='/videos' component={Videos} />

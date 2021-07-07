@@ -11,27 +11,20 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-/* import PropTypes from 'prop-types';
-import Box from '@material-ui/core/Box';
-import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp'; */
+import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
-
-/* const useRowStyles = makeStyles({
-  root: {
-    '& > *': {
-      borderBottom: 'unset',
-    },
-  },
-}); */
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    width: '100%',
+    overflowX: 'auto'
+  },
+  table: {
+    minWidth: 250
   },
   paper: {
     padding: theme.spacing(2),
@@ -40,10 +33,30 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Pricing() {
-  /* const { row } = props;
-  const [open, setOpen] = React.useState(false); */
-  /* const classes = useRowStyles(); */
+const ExpandableTableRow = ({ children, expandComponent, ...otherProps }) => {
+  const [isExpanded, setIsExpanded] = React.useState(false);
+
+  return (
+    <>
+      <TableRow {...otherProps}>
+        <TableCell padding="checkbox">
+          <IconButton onClick={() => setIsExpanded(!isExpanded)}>
+            {isExpanded ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+          </IconButton>
+        </TableCell>
+        {children}
+      </TableRow>
+      {isExpanded && (
+        <TableRow>
+          <TableCell padding="checkbox" />
+          {expandComponent}
+        </TableRow>
+      )}
+    </>
+  );
+};
+
+function Products() {
   const classes = useStyles();
 
   // Reference
@@ -221,12 +234,13 @@ function Pricing() {
 
   return (
 
-    <React.Fragment>
-      <h1>Pricing & Location</h1>
+    <Paper className={classes.root}>
+      <h1>Products Information</h1>
       <TableContainer component={Paper}>
-        <Table className={classes.table} size="small" aria-label="a dense table">
+        <Table className={classes.table} size="small" aria-label="table">
           <TableHead>
-            <TableRow className={classes.root}>
+            <TableRow>
+              <TableCell padding="checkbox" />
               <TableCell>Name</TableCell>
               <TableCell>Price</TableCell>
               <TableCell>Amount</TableCell>
@@ -235,15 +249,20 @@ function Pricing() {
           <TableBody>
             {product ? product.map(post => {
               return (
-                <TableRow key={post.id}>
-                  <TableCell>{post.name}</TableCell>
-                  <TableCell>{post.price}</TableCell>
-                  <TableCell>{post.amount}</TableCell>
-                  <TableCell key={post.id} className="post">
+                
+                  <ExpandableTableRow
+                    key={post.id}
+                    expandComponent={<TableCell colSpan="5">In Season: {post.season} <br/>Additional Notes: {post.note}</TableCell>}
+                  >
+                    
+                  <TableCell style={{ width: '0px' }}>{post.name}</TableCell>
+                  <TableCell style={{ width: '0px' }}>{post.price}</TableCell>
+                  <TableCell style={{ width: '0px' }}>{post.amount}</TableCell>
+                  <TableCell key={post.id} className={classes.root} style={{ width: '0px' }}>
                     <button onClick={() => populatePost(post.id, post.timestamp, post.name, post.amount, post.price, post.season, post.location, post.note)}><EditIcon fontSize="small" color="primary" /></button>
                     <button onClick={() => deletePost(post.id)}><DeleteIcon fontSize="small" color="secondary" /></button>
                   </TableCell>
-                </TableRow>
+                </ExpandableTableRow>
               )
             }) : null}
           </TableBody>
@@ -290,7 +309,7 @@ function Pricing() {
       ></textarea>
       <br />
       <div style={{ display: "flex" }}>
-        <button onClick={addPost} style={{ marginRight: "auto" }}>Add Post</button>  
+        <button onClick={addPost} style={{ marginRight: "auto" }}>Add Post</button>
       </div>
       <button onClick={e => saveProduct(product)}>Download Product</button>
 
@@ -330,7 +349,7 @@ function Pricing() {
                 style={{ width: 'auto', height: '5px' }}
               />
               <br />
-            
+
               Notes: <textarea
                 placeholder="Additional Notes"
                 onChange={e => setUpdateNote(e.target.value)}
@@ -343,8 +362,8 @@ function Pricing() {
             </div>
           ) : null
       }
-    </React.Fragment>
+    </Paper>
   );
 }
 
-export default Pricing;
+export default Products;
