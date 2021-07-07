@@ -2,7 +2,6 @@ import React from 'react';
 import MenuDrawer from './components/appMenu/MenuDrawer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Recipes from './pages/Recipes';
 import Shopping from './pages/Shopping';
 import Products from './pages/Products';
 import Write from './pages/Write';
@@ -17,7 +16,6 @@ function App() {
         <MenuDrawer>
           <Switch>
             <Route path='/' exact component={Home} />
-            <Route path='/recipes' component={Recipes} />
             <Route path='/shopping' component={Shopping} />
             <Route path='/products' component={Products} />
             <Route path='/write' component={Write} />

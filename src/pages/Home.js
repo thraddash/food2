@@ -6,7 +6,6 @@ import ".././App.css";
 import { v4 as uuidv4 } from 'uuid';
 import data from "../data.json";
 
-
 const filterData = (data, query) => {
   if (!query) {
     return data;
