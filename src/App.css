@@ -31,6 +31,11 @@ body {
   margin-top: 20px;
 }
 
+.download {
+  text-align: center;
+  margin-top: 10px;
+}
+
 button {
   background-color: #ccc;
   color: #555;

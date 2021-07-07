@@ -21,7 +21,7 @@ const DownloadJson = () => {
 
   return (
     <div className="btn-download">
-      <button onClick={e => saveData(Data)}>Download Data</button>
+      <button onClick={e => saveData(Data)}>Download Recipes</button>
     </div>
   )
 }

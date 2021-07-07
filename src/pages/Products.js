@@ -16,6 +16,7 @@ import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import DownloadProductsJson from '../components/DownloadProductsJson';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -225,23 +226,6 @@ function Products() {
       });
   }
 
-  // Bonus Section
-  //////////////////////////////////////////
-  // Downloading JSON File
-  const saveProduct = jsonDate => {
-    const fileProduct = JSON.stringify(jsonDate);
-
-    const blob = new Blob([fileProduct], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    // create link
-    const link = document.createElement('a');
-    // point link to file to be downloaded
-    link.download = 'newProduct.json';
-    link.href = url;
-    // trigger download
-    link.click();
-  }
-
   return (
 
     <Paper className={classes.root}>
@@ -329,9 +313,8 @@ function Products() {
       <div style={{ display: "flex" }}>
         <button onClick={addPost} style={{ marginRight: "auto" }}>Add Post</button>
       </div>
-      <button onClick={e => saveProduct(product)}>Download Product</button>
-
-
+      <DownloadProductsJson />
+      
       {
         updateTime || updateName || updateAmount || updatePrice || updateSeason || updateLocation || updateNote ?
           (

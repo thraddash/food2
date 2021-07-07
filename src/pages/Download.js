@@ -1,13 +1,15 @@
 import React from 'react';
 import DownloadJson from '../components/DownloadJson';
+import DownloadProductsJson from '../components/DownloadProductsJson';
 import ".././App.css";
 
 function Download() {
   return (
     <div className='download' >
       <center>
-        <h1>Download Recipes JSON file</h1>
+        <h1>Download JSON file</h1>
       <DownloadJson />
+      <DownloadProductsJson />
       </center>
     </div>
   );
