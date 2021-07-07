@@ -7,7 +7,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DownloadIcon from '@material-ui/icons/GetApp';
 import EditIcon from '@material-ui/icons/BorderColor';
 import VideoIcon from '@material-ui/icons/Videocam';
-import MoneyIcon from '@material-ui/icons/AttachMoney';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RestaurantIcon from '@material-ui/icons/RestaurantMenu';
 import NumberedIcon from '@material-ui/icons/FormatListNumbered';
 import Divider from '@material-ui/core/Divider';
@@ -28,7 +28,7 @@ export const menuItems = (
     <Link to={'/shopping'}>
       <ListItem button>
         <ListItemIcon>
-          <NumberedIcon />
+          <ShoppingCartIcon />
         </ListItemIcon>
         <ListItemText primary="Shopping List" />
       </ListItem>
@@ -36,7 +36,7 @@ export const menuItems = (
     <Link to={'/products'}>
       <ListItem button>
         <ListItemIcon>
-          <MoneyIcon />
+          <NumberedIcon />
         </ListItemIcon>
         <ListItemText primary="Products Info" />
       </ListItem>
