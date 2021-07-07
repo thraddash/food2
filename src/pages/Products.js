@@ -17,6 +17,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 
+
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -69,6 +70,7 @@ function Products() {
   const amountRef = useRef();
   const priceRef = useRef();
   const seasonRef = useRef();
+  const locationRef = useRef();
   const noteRef = useRef();
 
   // State 
@@ -80,6 +82,7 @@ function Products() {
   const [amount, setAmount] = useState();
   const [price, setPrice] = useState();
   const [season, setSeason] = useState();
+  const [location, setLocation] = useState();
   const [note, setNote] = useState();
 
   const [updateID, setUpdateID] = useState();
@@ -88,6 +91,7 @@ function Products() {
   const [updateAmount, setUpdateAmount] = useState();
   const [updatePrice, setUpdatePrice] = useState();
   const [updateSeason, setUpdateSeason] = useState();
+  const [updateLocation, setUpdateLocation] = useState();
   const [updateNote, setUpdateNote] = useState();
 
   // Effect
@@ -101,6 +105,7 @@ function Products() {
     amountRef.current.value = null;
     priceRef.current.value = null;
     seasonRef.current.value = null;
+    locationRef.current.value = null;
     noteRef.current.value = null;
   }, [product]);
 
@@ -109,7 +114,7 @@ function Products() {
   // Add Post
   //////////////////////////////////////////
   const addPost = () => {
-    if (name && note) {
+    if (name && price && amount) {
       // create new post object
       let newPost = {
         "id": uuidv1(),
@@ -118,6 +123,7 @@ function Products() {
         "amount": amount,
         "price": price,
         "season": season,
+        "location": location,
         "note": note
       }
       // merge new post with copy of old state
@@ -130,6 +136,7 @@ function Products() {
       setAmount();
       setPrice();
       setSeason();
+      setLocation();
       setNote();
 
       // update write to json file
@@ -155,13 +162,14 @@ function Products() {
 
   // Populate Post
   ////////////////////////////////////////// 
-  const populatePost = (key, time, name, amount, price, season, note) => {
+  const populatePost = (key, time, name, amount, price, season, location, note) => {
     setUpdateID(key);
     setUpdateTime(time);
     setUpdateName(name);
     setUpdateAmount(amount);
     setUpdatePrice(price);
     setUpdateSeason(season);
+    setUpdateLocation(location);
     setUpdateNote(note);
   }
 
@@ -181,6 +189,7 @@ function Products() {
       "amount": updateAmount,
       "price": updatePrice,
       "season": updateSeason,
+      "location": updateLocation,
       "note": updateNote
     }
     // remove old post with same ID and get the remaining product /// filter 
@@ -196,6 +205,7 @@ function Products() {
     setUpdateAmount();
     setUpdatePrice();
     setUpdateSeason();
+    setUpdateLocation();
     setUpdateNote();
 
     // update write to json file
@@ -252,7 +262,7 @@ function Products() {
                 
                   <ExpandableTableRow
                     key={post.id}
-                    expandComponent={<TableCell colSpan="5">In Season: {post.season} <br/>Additional Notes: {post.note}</TableCell>}
+                    expandComponent={<TableCell colSpan="5">Address: {post.location} <br/>In Season: {post.season} <br/>Additional Notes: {post.note}</TableCell>}
                   >
                     
                   <TableCell style={{ width: '0px' }}>{post.name}</TableCell>
@@ -270,36 +280,44 @@ function Products() {
       </TableContainer>
 
       <br />
-      Date: <input placeholder={'Enter ' + date}
+      Date: 
+      <input placeholder={'Enter ' + date}
         onChange={e => setTime(e.target.value)}
         value={time || ''}
         ref={timeRef} style={{ width: 'auto', height: '5px', border: '0' }}
       />
-
-      <br />
-      Name: <input placeholder="Name of Item"
+      <div className="field-wrapper required-field">Name (<label/>):
+      <input placeholder="Enter Item"
         onChange={e => setName(e.target.value)}
         value={name || ''}
         ref={nameRef} style={{ width: 'auto', height: '5px', border: '0' }}
       />
-      <br />
-      Price: <input placeholder="Enter Price"
+      </div>
+      <div className="field-wrapper required-field">Price (<label/>):
+      <input placeholder="Enter Price"
         onChange={e => setPrice(e.target.value)}
         value={price || ''}
         ref={priceRef} style={{ width: 'auto', height: '5px', border: '0' }}
       />
-      <br />
-      Amount: <input placeholder="Amount"
+      </div>
+      <div className="field-wrapper required-field">Amount (<label/>):
+      <input placeholder="Amount"
         onChange={e => setAmount(e.target.value)}
         value={amount || ''}
         ref={amountRef} style={{ width: 'auto', height: '5px', border: '0' }}
       />
-      <br />
+      </div>
       In Season: <input placeholder="Enter Month"
         onChange={e => setSeason(e.target.value)}
         value={season || ''}
         ref={seasonRef} style={{ width: 'auto', height: '5px', border: '0' }}
       />
+      <br />
+        Address: <input placeholder="Enter Address"
+          onChange={e => setLocation(e.target.value)}
+          value={location || ''}
+          ref={locationRef} style={{ width: 'auto', height: '5px', border: '0' }}
+        />
       <br />
       <textarea
         placeholder="Additional Notes"
@@ -315,7 +333,7 @@ function Products() {
 
 
       {
-        updateTime || updateName || updateAmount || updatePrice || updateSeason || updateNote ?
+        updateTime || updateName || updateAmount || updatePrice || updateSeason || updateLocation || updateNote ?
           (
             <div>
               <h4>Update Post</h4>
@@ -349,7 +367,12 @@ function Products() {
                 style={{ width: 'auto', height: '5px' }}
               />
               <br />
-
+              Address: <input placeholder="Enter Address"
+                onChange={e => setUpdateLocation(e.target.value)}
+                value={updateLocation || ''}
+                style={{ width: 'auto', height: '5px' }}
+              />
+              <br />
               Notes: <textarea
                 placeholder="Additional Notes"
                 onChange={e => setUpdateNote(e.target.value)}
