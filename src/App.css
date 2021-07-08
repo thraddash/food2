@@ -242,11 +242,11 @@ h1 {
 }
 
 .ingredient-list li {
-  /* margin: 0.5rem 0; */
+  /*  margin: 0.5rem 0;  */
 }
 
 .ingredient-text {
-  font-size: 1.5rem;
+  font-size: 18px;
   color: #888;
   text-align: left;
   white-space: pre-wrap;
@@ -260,4 +260,11 @@ h1 {
 .required-field label::after { 
   content: "*";
   color: red;
+}
+
+h5 {
+  font-size: 17px;
+  color: #4183c4;
+  text-transform: uppercase;
+  margin: .5rem 0;
 }
