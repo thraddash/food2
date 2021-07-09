@@ -13,7 +13,7 @@ const Recipe = ({ recipe }) => {
                 src={'/images/' + image} alt={recipe_name}
                 onError={(e) => {
                     e.target.src = PlaceholderImage
-                    e.target.style = ''
+                    e.target.style = 'object-fit: scale-down;'
                 }}
             />
             <button onClick={() => setShow(!show)}>Ingredients</button>
