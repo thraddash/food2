@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
-import RecipeDetails from './RecipeDetails'
+import React, { useState } from 'react';
+import RecipeDetails from './RecipeDetails';
+import PlaceholderImage from '.././images/placeholder.png'
 
 const Recipe = ({ recipe }) => {
     const [show, setShow] = useState(false)
@@ -8,9 +9,15 @@ const Recipe = ({ recipe }) => {
     return (
         <div className="recipe">
             <h2>{recipe_name}</h2>
-            <img src={'/images/' + image} alt={recipe_name} />
+            <img
+                src={'/images/' + image} alt={recipe_name}
+                onError={(e) => {
+                    e.target.src = PlaceholderImage
+                    e.target.style = ''
+                }}
+            />
             <button onClick={() => setShow(!show)}>Ingredients</button>
-            {show && <RecipeDetails ingredients={ingredients} direction={direction} note={note}/>}
+            {show && <RecipeDetails ingredients={ingredients} direction={direction} note={note} />}
         </div>
     );
 };
