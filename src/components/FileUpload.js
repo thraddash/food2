@@ -2,7 +2,7 @@ import React, { Fragment, useState } from 'react';
 import Message from './Message';
 import Progress from './Progress';
 import axios from 'axios';
-import "../styles.css";
+import ".././App.css";
 import placeholder from '../images/placeholder.png';
 
 const FileUpload = () => {

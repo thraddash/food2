@@ -20,9 +20,28 @@ app.get('/', (req, res) => res.status(200).send({
     message: "Server is running..."
 }));
 
-const WriteTextToFileAsync = async (contentToWrite) => {
-    fs.writeFile('./src/data.json', contentToWrite, (err) => {
+const WriteTextToFileAsyncHistory = async (contentToWrite) => {
+    fs.writeFile('./src/product.json', contentToWrite, (err) => {
         console.log(contentToWrite);
+        if (err) {
+            console.log(err);
+        } else {
+            console.log('Done writing to file...');
+        }
+    })
+}
+
+// post product
+app.post('/history', async (req, res, next) => {
+    // take the body from incoming request by using req.body and convert it into string
+    const requestContent = JSON.stringify(req.body, null, 2);
+    await WriteTextToFileAsyncHistory(requestContent)
+});
+/////
+
+const WriteTextToFileAsync = async (contentHistory) => {
+    fs.writeFile('./src/data.json', contentHistory, (err) => {
+        console.log(contentHistory);
         if (err) {
             console.log(err);
         } else {
