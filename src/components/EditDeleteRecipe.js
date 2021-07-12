@@ -29,6 +29,8 @@ function EditDeleteRecipe() {
   const [updateIngredient, setUpdateIngredient] = useState();
   const [updateDirection, setUpdateDirection] = useState();
   const [updateNote, setUpdateNote] = useState();
+  const [updateMiscImage, setUpdateMiscImage] = useState();
+  const [updateMiscVideo, setUpdateMiscVideo] = useState();
 
   // Effect
   //////////////////////////////////////  
@@ -55,7 +57,7 @@ function EditDeleteRecipe() {
 
   // Populate Post
   //////////////////////////////////////
-  const populatePost = (key, recipe_name, category, image, ingredient, direction, note) => {
+  const populatePost = (key, recipe_name, category, image, ingredient, direction, note, misc_image, misc_video) => {
     setUpdateID(key);
     setUpdateRecipeName(recipe_name);
     setUpdateCategory(category);
@@ -63,6 +65,8 @@ function EditDeleteRecipe() {
     setUpdateIngredient(ingredient);
     setUpdateDirection(direction);
     setUpdateNote(note);
+    setUpdateMiscImage(misc_image);
+    setUpdateMiscVideo(misc_video);
   }
 
   // Cancel Post
@@ -81,7 +85,9 @@ function EditDeleteRecipe() {
       "image": updateImage,
       "ingredient": updateIngredient,
       "direction": updateDirection,
-      "note": updateNote
+      "note": updateNote,
+      "misc_image": updateMiscImage,
+      "misc_video": updateMiscVideo
     }
     // remove old post with same ID and get the remaining data /// filter 
     let filterPost = [...data].filter(OBJ => OBJ.id !== updateID);
@@ -97,6 +103,8 @@ function EditDeleteRecipe() {
     setUpdateIngredient();
     setUpdateDirection();
     setUpdateNote();
+    setUpdateMiscImage();
+    setUpdateMiscVideo();
 
     // update write to json file
     saveJson(posts);
@@ -117,7 +125,7 @@ function EditDeleteRecipe() {
   return (
     <div className="App">
       {/* If temp state has got values of recipe_name, category and ingredient for update form show this */}
-      {updateRecipeName || updateCategory || updateImage || updateIngredient || updateDirection || updateNote ?
+      {updateRecipeName || updateCategory || updateImage || updateIngredient || updateDirection || updateNote || updateMiscImage || updateMiscVideo ?
         (
           <div>
             <h4>Update Post</h4>
@@ -151,6 +159,16 @@ function EditDeleteRecipe() {
               value={updateNote || ''}
             ></textarea>
             <br />
+            <textarea placeholder="Misc Images (comma separated)"
+              onChange={e => setUpdateMiscImage(e.target.value)}
+              value={updateMiscImage || ''}
+            ></textarea>
+            <br />
+            <textarea placeholder="Misc Videos (comma separated)"
+              onChange={e => setUpdateMiscVideo(e.target.value)}
+              value={updateMiscVideo || ''}
+            ></textarea>
+            <br />
             <button onClick={updatePost}>Update Post</button>
             <button onClick={cancelPost}>Cancel</button>
           </div>
@@ -166,13 +184,15 @@ function EditDeleteRecipe() {
               <p><b><u>Ingredients:</u></b><br></br>{post.ingredients}</p>
               <p><b><u>Directions:</u></b><br></br>{post.direction}</p>
               <p><b><u>Notes:</u></b><br></br>{post.note}</p>
+              <p><b><u>MiscImage:</u></b><br></br>{post.misc_image}</p>
+              <p><b><u>MiscVideo:</u></b><br></br>{post.misc_video}</p>
               <Button
                 size="small"
                 variant="contained"
                 color="default"
                 className={classes.button}
                 startIcon={<EditIcon />}
-                onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note)}
+                onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note, post.misc_image, post.misc_video)}
               >
                 Edit
               </Button>

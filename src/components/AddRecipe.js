@@ -19,7 +19,7 @@ function AddRecipe() {
   const directionRef = useRef();
   const noteRef = useRef();
   const miscImageRef = useRef();
-  const videoRef = useRef();
+  const miscVideoRef = useRef();
 
 
   // State
@@ -33,7 +33,7 @@ function AddRecipe() {
   const [direction, setDirection] = useState();
   const [note, setNote] = useState();
   const [misc_image, setMiscImage] = useState();
-  const [video, setVideo] = useState();
+  const [misc_video, setMiscVideo] = useState();
 
   const [updateID, setUpdateID] = useState();
   const [updateRecipeName, setUpdateRecipeName] = useState();
@@ -43,7 +43,7 @@ function AddRecipe() {
   const [updateDirection, setUpdateDirection] = useState();
   const [updateNote, setUpdateNote] = useState();
   const [updateMiscImage, setUpdateMiscImage] = useState();
-  const [updateVideo, setUpdateVideo] = useState();
+  const [updateMiscVideo, setUpdateMiscVideo] = useState();
 
   // Effect
   //////////////////////////////////////  
@@ -59,7 +59,7 @@ function AddRecipe() {
   // Add Post
   //////////////////////////////////////
   const addPost = () => {
-    if (recipe_name || category || image || ingredient || direction || note || misc_image || video) {
+    if (recipe_name || category || image || ingredient || direction || note || misc_image || misc_video) {
       // create new post object
       let newPost = {
         "id": uuidv1(),
@@ -70,7 +70,7 @@ function AddRecipe() {
         "direction": direction,
         "note": note,
         "misc_image": misc_image,
-        "video": video
+        "misc_video": misc_video
       }
       // merge new post with copy of old state
       let posts = [...data, newPost];
@@ -84,7 +84,7 @@ function AddRecipe() {
       setDirection();
       setNote();
       setMiscImage();
-      setVideo();
+      setMiscVideo();
 
       // update write to json file
       saveJson(posts);
@@ -106,7 +106,7 @@ function AddRecipe() {
 
   // Populate Post
   //////////////////////////////////////
-  const populatePost = (key, recipe_name, category, image, ingredient, direction, note, misc_image, video) => {
+  const populatePost = (key, recipe_name, category, image, ingredient, direction, note, misc_image, misc_video) => {
     setUpdateID(key);
     setUpdateRecipeName(recipe_name);
     setUpdateCategory(category);
@@ -115,7 +115,7 @@ function AddRecipe() {
     setUpdateDirection(direction);
     setUpdateNote(note);
     setUpdateMiscImage(misc_image);
-    setUpdateVideo(video);
+    setUpdateMiscVideo(misc_video);
   }
 
   // Cancel Post
@@ -136,7 +136,7 @@ function AddRecipe() {
       "direction": updateDirection,
       "note": updateNote,
       "misc_image": updateMiscImage,
-      "video": updateVideo,
+      "misc_video": updateMiscVideo,
     }
     // remove old post with same ID and get the remaining data /// filter 
     let filterPost = [...data].filter(OBJ => OBJ.id !== updateID);
@@ -153,7 +153,7 @@ function AddRecipe() {
     setUpdateDirection();
     setUpdateNote();
     setUpdateMiscImage();
-    setUpdateVideo();
+    setUpdateMiscVideo();
 
     // update write to json file
     saveJson(posts);
@@ -231,17 +231,17 @@ function AddRecipe() {
         ></textarea>
         <br />
         <textarea
-          placeholder="Misc Images... (comma serparated)"
+          placeholder="Misc Images (comma separated)"
           onChange={e => setMiscImage(e.target.value)}
           value={misc_image || ''}
           ref={miscImageRef}
         ></textarea>
         <br />
         <textarea
-          placeholder="Videos... (comma separated)"
-          onChange={e => setVideo(e.target.value)}
-          value={video || ''}
-          ref={videoRef}
+          placeholder="Misc Videos (comma separated)"
+          onChange={e => setMiscVideo(e.target.value)}
+          value={misc_video || ''}
+          ref={miscVideoRef}
         ></textarea>
         <br />
         <div>
@@ -251,7 +251,7 @@ function AddRecipe() {
       </div>
 
       {/* If temp state has got values of recipe_name, category and ingredient for update form show this */}
-      {updateRecipeName || updateCategory || updateImage || updateIngredient || updateDirection || updateNote || updateMiscImage || updateVideo ?
+      {updateRecipeName || updateCategory || updateImage || updateIngredient || updateDirection || updateNote || updateMiscImage || updateMiscVideo ?
         (
           <div>
             <h4>Update Post</h4>
@@ -285,14 +285,14 @@ function AddRecipe() {
               value={updateNote || ''}
             ></textarea>
             <br />
-            <textarea placeholder="Misc Images... (comma serparated)"
+            <textarea placeholder="Misc Images (comma separated)"
               onChange={e => setUpdateMiscImage(e.target.value)}
               value={updateMiscImage || ''}
             ></textarea>
             <br />
-            <textarea placeholder="Videos... (comma separated)"
-              onChange={e => setUpdateVideo(e.target.value)}
-              value={updateVideo || ''}
+            <textarea placeholder="Misc Videos (comma separated)"
+              onChange={e => setUpdateMiscVideo(e.target.value)}
+              value={updateMiscVideo || ''}
             ></textarea>
             <br />
             <button onClick={updatePost}>Update Post</button>
@@ -311,8 +311,8 @@ function AddRecipe() {
               <p><b><u>Directions:</u></b><br></br>{post.direction}</p>
               <p><b><u>Notes:</u></b><br></br>{post.note}</p>
               <p><b><u>Misc Images:</u></b><br></br>{post.misc_image}</p>
-              <p><b><u>Videos:</u></b><br></br>{post.video}</p>
-              <button onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note, post.misc_image, post.video)}>Edit</button>
+              <p><b><u>Misc Videos:</u></b><br></br>{post.misc_video}</p>
+              <button onClick={() => populatePost(post.id, post.recipe_name, post.category, post.image, post.ingredient, post.direction, post.note, post.misc_image, post.misc_video)}>Edit</button>
               <button onClick={() => deletePost(post.id)}>Delete</button>
             </div>
           )
