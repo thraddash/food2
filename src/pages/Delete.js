@@ -4,8 +4,8 @@ import ".././App.css";
 
 function Delete() {
   return (
-    <div className='videos'>
-      <h1>Videos</h1>
+    <div className='App'>
+      <h1>Delete Images/Videos</h1>
       
     </div>
   );
