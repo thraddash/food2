@@ -24,7 +24,7 @@
 
 .carousel .control-arrow:before,
 .carousel.carousel-slider .control-arrow:before {
-	margin: 0 5px;
+	margin: 20px 10px 20px 10px;
 	display: inline-block;
 	border-top: 8px solid transparent;
 	border-bottom: 8px solid transparent;
