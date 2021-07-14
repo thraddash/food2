@@ -60,9 +60,10 @@ p {
 ```
 - local storage, file designation (DONE) 
 - separate features into components (DONE)
-- add menu bar
-- add search bar
-- add component to play video files
+- add menu bar (DONE)
+- add search bar (DONE)
+- add component to play video files (In Progress)   
+- add placeholder image (DONE)   
 ## Good to Have:   
 - form validation (text, img size/type)
 - multi image upload
