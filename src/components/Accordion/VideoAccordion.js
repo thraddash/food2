@@ -33,7 +33,7 @@ function VideoAccordion(props) {
                 style={{ maxHeight: `${setHeight}` }}
                 className="accordion__content"
             >
-                <VideoCarousel key={uuidv4()} />
+                <VideoCarousel key={uuidv4()} misc_video={props.content} />
             </div>
         </div>
     );

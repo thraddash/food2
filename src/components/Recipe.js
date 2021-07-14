@@ -4,7 +4,7 @@ import PlaceholderImage from '.././images/placeholder.png'
 
 const Recipe = ({ recipe }) => {
     const [show, setShow] = useState(false)
-    const { recipe_name, image, ingredients, direction, note } = recipe;
+    const { recipe_name, image, ingredients, direction, note, misc_image, misc_video } = recipe;
 
     return (
         <div className="recipe">
@@ -17,7 +17,7 @@ const Recipe = ({ recipe }) => {
                 }}
             />
             <button onClick={() => setShow(!show)}>Ingredients</button>
-            {show && <RecipeDetails ingredients={ingredients} direction={direction} note={note} />}
+            {show && <RecipeDetails ingredients={ingredients} direction={direction} note={note} misc_image={misc_image} misc_video={misc_video} />}
         </div>
     );
 };

@@ -1,26 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "./carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
+import { v1 as uuidv4 } from 'uuid';
 
-class ImageCarousel extends Component {
-    render() {
+const ImageCarousel = (props) => {
+    let { misc_image } = props;
+
+    if (misc_image) {
         return (
-            <Carousel infiniteLoop useKeyboardArrows dynamicHeight={true} emulateTouch={true}>
-                <div className="film__box">
-                    <img src="images/steak.jpg" alt="" />
-                    <p className=""></p>
-                </div>
-                <div>
-                    <img src="images/food.jpg" alt="" />
-                    
-                </div>
-                <div className="film__box">
-                    <img src="images/eggplant.jpg" alt="" />
-               
-                </div>
+            <Carousel infiniteLoop showThumbs={false} useKeyboardArrows dynamicHeight={true} emulateTouch={true}>
+
+                {misc_image.split(', ').map((image, i) => (
+                    <div className="film__box" key={uuidv4()}>
+                        <div>
+                            <img src={'/images/' + image} alt="" />
+                        </div>
+                    </div>
+                ))
+                }
             </Carousel>
-        );
-    }
+        )
+    } else {
+        return (
+            <Carousel />
+        )
+    };
 };
 
 export default ImageCarousel;

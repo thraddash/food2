@@ -1,52 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactPlayer from "react-player";
 import { Carousel } from 'react-responsive-carousel';
 import "./carousel.min.css";
+import { v1 as uuidv4 } from 'uuid';
 
-class VideoCarousel extends Component {
-    render() {
-        return (
-            <Carousel infiniteLoop showThumbs={false} useKeyboardArrows dynamicHeight={true} >
-
-                <div className='player-wrapper'>
-                    <ReactPlayer
-                        config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-                        // Disable right click
-                        onContextMenu={e => e.preventDefault()}
-                        url='/videos/bc.mp4'
-                        playIcon={<button>Play</button>}
-                        controls={true}
-                        width='100%'
-                    />
-                </div>
-                <div className='player-wrapper'>
-                    <ReactPlayer 
-                        config={{ file: { attributes: { controlsList: 'nodownload' } } }}
-                        // Disable right click
-                        onContextMenu={e => e.preventDefault()}
-                        url='/videos/fw.mp4'
-                        playIcon={<button>Play</button>}
-                        controls={true}
-                        width='100%'
-                    />
+const VideoCarousel = (props) => {
+    return (
+        <Carousel infiniteLoop showThumbs={false} useKeyboardArrows dynamicHeight={true} >
+            {props.misc_video.split(', ').map((video, i) => (
+                
+                <div className='player-wrapper' key={uuidv4()}>
                     
-                </div>
-                <div className='player-wrapper'>
                     <ReactPlayer
+                        key={i}
                         config={{ file: { attributes: { controlsList: 'nodownload' } } }}
                         // Disable right click
                         onContextMenu={e => e.preventDefault()}
-                        url='/videos/jones.mp4'
+                        url={'/videos/' + video}
                         playIcon={<button>Play</button>}
                         controls={true}
                         width='100%'
                     />
-                    
                 </div>
-            </Carousel>
+            ))}
+        </Carousel>
 
-        );
-    }
+    );
 };
 
 export default VideoCarousel;

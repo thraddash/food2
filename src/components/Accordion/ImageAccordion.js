@@ -5,7 +5,6 @@ import { v1 as uuidv4 } from 'uuid';
 import '../../App.css';
 
 function ImgVideoAccordion(props) {
-
     const [setActive, setActiveState] = useState("");
     const [setHeight, setHeightState] = useState("0px");
     const [setRotate, setRotateState] = useState("accordion__icon");
@@ -33,7 +32,7 @@ function ImgVideoAccordion(props) {
                 style={{ maxHeight: `${setHeight}` }}
                 className="accordion__content"
             >
-                <ImageCarousel key={uuidv4()} />
+                <ImageCarousel key={uuidv4()} misc_image={props.content} />
             </div>
         </div>
     );
