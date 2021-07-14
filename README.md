@@ -3,7 +3,7 @@
 [![GitHub commit activity][commits-shield]][commits-url]
 
 # Food2 (Create, Remove, Update, Delete JSON file) 
-#### Demo: https://happy-shannon-69aac4.netlify.app/
+#### Demo: https://happy-shannon-69aac4.netlify.app/   
 <img src="https://github.com/thraddash/food2/blob/master/src/images/mockup.jpg" width="800" title="Mockup">
 
 <!-- TABLE OF CONTENTS -->
