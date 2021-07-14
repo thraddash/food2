@@ -39,8 +39,3 @@ function ImgVideoAccordion(props) {
 }
 
 export default ImgVideoAccordion;
-/*
-{
-    props.content.split(', ').map((image, i) => (
-        { i > 0}
-    ))} */
