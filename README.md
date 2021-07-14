@@ -62,7 +62,7 @@ p {
 - separate features into components (DONE)
 - add menu bar (DONE)
 - add search bar (DONE)
-- add component to play video files (In Progress)   
+- add component to play video files (DONE)   
 - add placeholder image (DONE)   
 ## Good to Have:   
 - form validation (text, img size/type)
