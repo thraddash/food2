@@ -6,6 +6,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
+import PlaceholderImage from '.././images/placeholder.png'
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -179,7 +180,10 @@ function EditDeleteRecipe() {
           return (
             <div key={post.id} className="post">
               <h3>{post.recipe_name}</h3>
-              <img src={'/images/' + post.image} alt=""></img>
+              <img src={'/images/' + post.image} alt="" onError={(e) => {
+                e.target.src = PlaceholderImage
+                e.target.style = 'object-fit: scale-down;'
+              }}></img>
               <p><b><u>Category:</u></b> {post.category}</p>
               <p><b><u>Ingredients:</u></b><br></br>{post.ingredients}</p>
               <p><b><u>Directions:</u></b><br></br>{post.direction}</p>

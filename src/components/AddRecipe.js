@@ -4,6 +4,7 @@ import Data from "../data.json";
 import { v1 as uuidv1 } from 'uuid';
 import axios from 'axios';
 import FileUpload from './FileUpload';
+import PlaceholderImage from '.././images/placeholder.png'
 
 function AddRecipe() {
 
@@ -305,7 +306,10 @@ function AddRecipe() {
           return (
             <div key={post.id} className="post">
               <h3>{post.recipe_name}</h3>
-              <img src={'/images/' + post.image} alt=""></img>
+              <img src={'/images/' + post.image} alt="" onError={(e) => {
+                e.target.src = PlaceholderImage
+                e.target.style = 'object-fit: scale-down;'
+              }}></img>
               <p><b><u>Category:</u></b> {post.category}</p>
               <p><b><u>Ingredients:</u></b><br></br>{post.ingredient}</p>
               <p><b><u>Directions:</u></b><br></br>{post.direction}</p>
