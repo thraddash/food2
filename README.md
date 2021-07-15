@@ -69,12 +69,11 @@ p {
 - add placeholder image (DONE)   
 ## Good to Have:   
 - form validation (text, img size/type)
-- multi image upload
-- delete image/video files   
+- multi image upload or dropzone    
 - onClick + to add additional textfields and append to json file
 - autoscroll user to top of page when making updates or pops up new window   
 - caching   
-- delete local files server side        
+- delete local files (image/video) server side   
 
 ## Install 
 yarn install  
