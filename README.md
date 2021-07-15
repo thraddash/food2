@@ -28,7 +28,10 @@ Running "yarn dev" will concurently start up frontend and backend server.
 
 #### frontend: http://localhost:3000  
 #### backend: http://localhost:5000  
- 
+
+## Bugs:  
+reverse recipe order changes back to original order of data.json. (look into caching)   
+
 ## Features:  
 - Ability to download data.json file (DONE)
 - Add 3rd argument to JSON.stringify, to represent the space indentation level for easy of reading (DONE)
@@ -69,7 +72,8 @@ p {
 - multi image upload
 - delete image/video files   
 - onClick + to add additional textfields and append to json file
-- autoscroll user to top of page when making updates or pops up new window        
+- autoscroll user to top of page when making updates or pops up new window   
+- added Video upload page        
 
 ## Install 
 yarn install  
@@ -109,6 +113,6 @@ yarn dev
 [node-url]: https://nodejs.org/
 [npm-shield]: https://img.shields.io/badge/npm-v6.14.11-orange
 [npm-url]: https://www.npmjs.com/package/npm-install
-[commits-shield]: https://img.shields.io/badge/commits-29-green.svg
+[commits-shield]: https://img.shields.io/badge/commits-95-green.svg
 [commits-url]: https://img.shields.io/github/commit-activity/y/thraddash/food2
 [product-screenshot]: /src/images/
