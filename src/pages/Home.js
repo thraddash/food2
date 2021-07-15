@@ -7,8 +7,6 @@ import { v4 as uuidv4 } from 'uuid';
 import data from "../data.json";
 
 
-console.log(data)
-
 const filterData = (data, query) => {
   if (!query) {
     return data;
