@@ -30,7 +30,7 @@ Running "yarn dev" will concurently start up frontend and backend server.
 #### backend: http://localhost:5000  
 
 ## Bugs:  
-reverse recipe order changes back to original order of data.json. (look into caching)   
+- reverse recipe order changes back to original order of data.json. (look into caching)   
 
 ## Features:  
 - Ability to download data.json file (DONE)
