@@ -1,5 +1,5 @@
 import React from 'react';
-//import DisplayVideos from "../components/DisplayVideos";
+//import DeleteImage from '../components/DeleteFiles/deleteImage';
 import ".././App.css";
 
 function Delete() {

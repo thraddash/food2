@@ -59,6 +59,17 @@
     "image": "food.jpg",
     "ingredient": "spring roll\nmint leaves\n",
     "misc_image": "onion_pancake.jpg",
-    "misc_video": "bc.mp4"
+    "misc_video": "castle.mp4"
+  },
+  {
+    "id": "37565ca0-e516-11eb-b544-494618629961",
+    "recipe_name": "Salad",
+    "category": "Salad",
+    "image": "salad.jpg",
+    "ingredient": "lemon, egg, blueberry",
+    "direction": "n/a",
+    "note": "n/a",
+    "misc_image": "salad.jpg",
+    "misc_video": "castle.mp4, jones.mp4, fw.mp4"
   }
 ]

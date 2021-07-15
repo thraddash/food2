@@ -33,7 +33,7 @@ function Home() {
         setSearchQuery={setSearchQuery}
       />
       <div className="recipes">
-        {filteredData !== [] && filteredData.map(recipe =>
+        {filteredData !== [] && filteredData.reverse().map(recipe =>
           <Recipe key={uuidv4()} recipe={recipe} />)}
       </div>
     </div>

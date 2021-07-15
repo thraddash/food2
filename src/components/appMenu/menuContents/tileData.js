@@ -3,10 +3,10 @@ import React from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-/* import HomeIcon from '@material-ui/icons/Home'; */
+// import HomeIcon from '@material-ui/icons/Home';
 import DownloadIcon from '@material-ui/icons/GetApp';
 import EditIcon from '@material-ui/icons/BorderColor';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+//import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RestaurantIcon from '@material-ui/icons/RestaurantMenu';
 import NumberedIcon from '@material-ui/icons/FormatListNumbered';
@@ -58,14 +58,14 @@ export const menuItems = (
         <ListItemText primary="Edit/Delete/Upload" />
       </ListItem>
     </Link>
-    <Link to={'/delete'}>
+    {/* <Link to={'/delete'}>
       <ListItem button>
         <ListItemIcon>
           <DeleteForeverIcon />
         </ListItemIcon>
         <ListItemText primary="Delete Img/Videos" />
       </ListItem>
-    </Link>
+    </Link> */}
     <Divider />
     <Link to={'/download'}>
       <ListItem button>

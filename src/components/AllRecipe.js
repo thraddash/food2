@@ -1,7 +1,6 @@
 //import ".././App.css";
 import data from "../data.json";
 
-
 function AllRecipe() {
 
     return (
