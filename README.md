@@ -76,13 +76,13 @@ p {
 - add search bar (DONE)
 - add component to play video files (DONE)   
 - add placeholder image (DONE)
-- reverse order data.json, latest recipe changes will be displayed first (DONE)   
 ## Good to Have:   
 - form validation (text, img size/type)
 - multi image upload or dropzone    
 - onClick + to add additional textfields and append to json file
 - autoscroll user to top of page when making updates or pops up new window   
 - delete local files (image/video) server side   
+- reverse order data.json, latest recipe changes will be displayed first    
 
 ## Install 
 yarn install  

@@ -22,6 +22,7 @@ function Home() {
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
   const filteredData = filterData(data, searchQuery);
+  
 
   return (
     <div className="App">
@@ -33,7 +34,7 @@ function Home() {
         setSearchQuery={setSearchQuery}
       />
       <div className="recipes">
-        {filteredData.reverse() !== [] && filteredData.reverse().map(recipe =>
+        {filteredData !== [] && filteredData.map(recipe =>
           <Recipe key={uuidv4()} recipe={recipe} />)}
       </div>
     </div>
