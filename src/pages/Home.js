@@ -6,6 +6,9 @@ import ".././App.css";
 import { v4 as uuidv4 } from 'uuid';
 import data from "../data.json";
 
+
+console.log(data)
+
 const filterData = (data, query) => {
   if (!query) {
     return data;
@@ -34,7 +37,7 @@ function Home() {
         setSearchQuery={setSearchQuery}
       />
       <div className="recipes">
-        {filteredData !== [] && filteredData.reverse().map(recipe =>
+        {filteredData !== [] && filteredData.map(recipe =>
           <Recipe key={uuidv4()} recipe={recipe} />)}
       </div>
     </div>
