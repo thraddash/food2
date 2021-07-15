@@ -39,7 +39,7 @@ Running "yarn dev" will concurently start up frontend and backend server.
 #### backend: http://localhost:5000  
 
 ## Bugs:  
-- reverse recipe order changes back to original order of data.json. (look into caching)   
+ 
 
 ## Features:  
 - Ability to download data.json file (DONE)
@@ -75,13 +75,13 @@ p {
 - add menu bar (DONE)
 - add search bar (DONE)
 - add component to play video files (DONE)   
-- add placeholder image (DONE)   
+- add placeholder image (DONE)
+- reverse order data.json, latest recipe changes will be displayed first (DONE)   
 ## Good to Have:   
 - form validation (text, img size/type)
 - multi image upload or dropzone    
 - onClick + to add additional textfields and append to json file
 - autoscroll user to top of page when making updates or pops up new window   
-- caching   
 - delete local files (image/video) server side   
 
 ## Install 
