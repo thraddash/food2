@@ -4,7 +4,7 @@
 
 # Food2 (Create, Remove, Update, Delete JSON file) 
 #### Demo: https://happy-shannon-69aac4.netlify.app/   
-<img src="https://github.com/thraddash/food2/blob/master/src/images/mockup.jpg" width="800" title="Mockup">
+<img src="https://github.com/thraddash/food2/blob/master/src/images/mockup.png" width="800" title="Mockup">
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
