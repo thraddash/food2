@@ -73,7 +73,8 @@ p {
 - delete image/video files   
 - onClick + to add additional textfields and append to json file
 - autoscroll user to top of page when making updates or pops up new window   
-- added Video upload page        
+- caching   
+- delete local files server side        
 
 ## Install 
 yarn install  
