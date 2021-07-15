@@ -4,11 +4,14 @@
 
 # Food2 (Create, Remove, Update, Delete JSON file)  
 #### Demo: https://happy-shannon-69aac4.netlify.app/   
-##### Menu Navbar test: (branch menu) https://clever-hodgkin-c4212b.netlify.app/   
-##### Img/Video Carousel test: (branch vid_img_merge) https://hungry-fermat-1aa832.netlify.app   
-##### (branch image) - Recipe Search Page test   
-##### (branch search) - Search Bar test   
-##### (branch todolist) - Todolist for Shopping list Page   
+###### (branch image) - Recipe Search Page test   
+###### (branch search) - Search Bar test   
+###### (branch todolist) - Todolist for Shopping list Page   
+###### Menu Navbar test: (branch menu) 
+https://github.com/thraddash/navbar Demo: https://clever-hodgkin-c4212b.netlify.app/   
+###### Img/Video Carousel test: (branch vid_img_merge)   
+https://github.com/thraddash/carousel_test Demo: https://hungry-fermat-1aa832.netlify.app   
+
 
 <img src="https://github.com/thraddash/food2/blob/master/src/images/mockup.png" width="800" title="Mockup">
 
