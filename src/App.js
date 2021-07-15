@@ -6,7 +6,7 @@ import Shopping from './pages/Shopping';
 import Products from './pages/Products';
 import Write from './pages/Write';
 import Edit from './pages/Edit';
-import Delete from './pages/Delete';
+import Video from './pages/Video';
 import Download from './pages/Download';
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
             <Route path='/products' component={Products} />
             <Route path='/write' component={Write} />
             <Route path='/edit' component={Edit} />
-            <Route path='/delete' component={Delete} />
+            <Route path='/video' component={Video} />
             <Route path='/download' component={Download} />
           </Switch>
         </MenuDrawer>

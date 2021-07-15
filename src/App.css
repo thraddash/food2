@@ -74,6 +74,10 @@ p {
   height: 150px;
   width: 150px; 
 }
+.thumbnail_vid {
+  height: 350px;
+  width: 350px; 
+}
 a { 
   text-decoration: none; 
   color: #4183c4;

@@ -6,7 +6,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import HomeIcon from '@material-ui/icons/Home';
 import DownloadIcon from '@material-ui/icons/GetApp';
 import EditIcon from '@material-ui/icons/BorderColor';
-//import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import VideoIcon from '@material-ui/icons/Videocam';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import RestaurantIcon from '@material-ui/icons/RestaurantMenu';
 import NumberedIcon from '@material-ui/icons/FormatListNumbered';
@@ -58,14 +58,14 @@ export const menuItems = (
         <ListItemText primary="Edit/Delete/Upload" />
       </ListItem>
     </Link>
-    {/* <Link to={'/delete'}>
+    <Link to={'/video'}>
       <ListItem button>
         <ListItemIcon>
-          <DeleteForeverIcon />
+          <VideoIcon />
         </ListItemIcon>
-        <ListItemText primary="Delete Img/Videos" />
+        <ListItemText primary="Upload Videos" />
       </ListItem>
-    </Link> */}
+    </Link>
     <Divider />
     <Link to={'/download'}>
       <ListItem button>

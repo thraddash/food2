@@ -76,6 +76,25 @@ app.post('/upload', (req, res, next) => {
     });
 });
 
+// Video Upload Endpoint
+app.post('/uploadvideo', (req, res, next) => {
+    if (req.files === null) {
+        return res.status(400).json({ msg: 'No video uploaded' });
+    }
+
+    const file = req.files.file;
+
+    //file.mv(`${__dirname}/images/${file.name}`, err => {
+    file.mv(`./public/videos/${file.name}`, err => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send(err);
+        }
+
+        res.json({ fileName: file.name, filePath: `/videos/${file.name}` });
+    });
+});
+
 // 404 route for server
 app.use((req, res, next) => res.status(404).send({
     message: "Could not find specified route that was requested...!"
