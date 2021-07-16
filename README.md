@@ -106,7 +106,8 @@ TodoList revamp
 https://www.youtube.com/watch?v=pCA4qpQDZD8&ab_channel=DevEd   
   
 MERN (Mongodb, express, react, node)      
-https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66   
+https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66
+https://medium.com/@rajat_sehgal/create-your-first-react-application-with-express-and-mongodb-e4aa34cacb20   
 
 Recipe form   
 https://codesandbox.io/s/vigilant-swanson-b6dmq?file=/src/NewRecipeForm.jsx   
@@ -119,6 +120,10 @@ https://stackoverflow.com/questions/55478962/groupby-json-data-then-map-in-react
   
 parsing json   
 https://www.youtube.com/watch?v=MQhpMIzCAC8&ab_channel=JavaScriptMastery   
+  
+Template UI Reference   
+https://codeburst.io/full-stack-adventure-weekly-meal-prep-with-a-custom-blue-apron-recipe-api-d8ff4b29bc39  
+  
   
 ```
 outJSON= [ {team: "TeamA",name: "Ahmed",field3:"val3"}, {team: "TeamB",name: "Ahmed",field3:"val43"}, {team: "TeamA",name: "Ahmed",field3:"val55"} ]
