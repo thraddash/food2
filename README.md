@@ -38,10 +38,14 @@ Running "yarn dev" will concurently start up frontend and backend server.
 #### frontend: http://localhost:3000  
 #### backend: http://localhost:5000  
 
-## Bugs:  
- 
-
-## Features:  
+## [Projects Kanban board](https://github.com/thraddash/food2/projects/1) 
+###### 📕 Hard  📙 Mid  📘 InProgress  📗 Completed  
+   
+## Features:
+<details>
+  <summary> Completed </summary>
+  
+  
 - Ability to download data.json file (DONE)
 - Add 3rd argument to JSON.stringify, to represent the space indentation level for easy of reading (DONE)
 <details>
@@ -76,17 +80,23 @@ p {
 - add search bar (DONE)
 - add component to play video files (DONE)   
 - add placeholder image (DONE)
+</details>
+
 ## Good to Have / Future Release 
-#### Click to view [Projects Kanban board](https://github.com/thraddash/food2/projects/1) 📕 Hard  📙 Mid  📘 InProgress  📗 Completed
+<details>
+  <summary> Future Release </summary>
 - form validation (text, img size/type)
 - multi image upload or dropzone    
 - onClick + to add additional textfields and append to json file
 - autoscroll user to top of page when making updates or pops up new window   
 - delete local files (image/video) server side   
 - reverse order data.json, latest recipe changes will be displayed first    
+</details>
+
+## Reference Materials
 
 <details>
-  <summary> Research & Reference materials </summary>
+  <summary> Reference materials </summary>
 
 CRUD   
 https://www.youtube.com/watch?v=lFkBk3f6Xww&ab_channel=WebStylePress   
@@ -186,6 +196,6 @@ yarn dev
 [node-url]: https://nodejs.org/
 [npm-shield]: https://img.shields.io/badge/npm-v6.14.11-orange
 [npm-url]: https://www.npmjs.com/package/npm-install
-[commits-shield]: https://img.shields.io/badge/commits-111-green.svg
+[commits-shield]: https://img.shields.io/badge/commits-112-green.svg
 [commits-url]: https://img.shields.io/github/commit-activity/y/thraddash/food2
 [product-screenshot]: /src/images/
