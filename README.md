@@ -84,6 +84,69 @@ p {
 - delete local files (image/video) server side   
 - reverse order data.json, latest recipe changes will be displayed first    
 
+<details>
+  <summary> Research & Reference materials </summary>
+
+CRUD   
+https://www.youtube.com/watch?v=lFkBk3f6Xww&ab_channel=WebStylePress   
+  
+MERN (Mongodb, express, react, node)      
+https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66   
+
+Recipe form   
+https://codesandbox.io/s/vigilant-swanson-b6dmq?file=/src/NewRecipeForm.jsx   
+  
+dropzone   
+https://codesandbox.io/s/removable-drop-zone-82km9?file=/src/App.js   
+
+group json file   
+https://stackoverflow.com/questions/55478962/groupby-json-data-then-map-in-react-component   
+  
+parsing json   
+https://www.youtube.com/watch?v=MQhpMIzCAC8&ab_channel=JavaScriptMastery   
+  
+```
+outJSON= [ {team: "TeamA",name: "Ahmed",field3:"val3"}, {team: "TeamB",name: "Ahmed",field3:"val43"}, {team: "TeamA",name: "Ahmed",field3:"val55"} ]
+
+var groupBy = function(xs, key) {
+  return xs.reduce(function(rv, x) {
+    (rv[x[key]] = rv[x[key]] || []).push(x);
+    return rv;
+  }, {});
+};
+var groubedByTeam=groupBy(outJSON, 'team')
+console.log(groubedByTeam);
+```
+  
+How to access nested JSON object Inside Array in react js   
+https://medium.com/officialrajdeepsingh/how-to-access-nested-json-object-inside-array-in-react-js-c00cef3c252c   
+
+React File Uploader with Express   
+https://www.youtube.com/watch?v=b6Oe2puTdMQ&ab_channel=TraversyMedia   
+
+Google API upload/delete/create    
+https://www.youtube.com/watch?v=1y0-IfRW114&ab_channel=yoursTRULY   
+
+How-to-pass-data-between-react-components   
+https://www.pluralsight.com/guides/how-to-pass-data-between-react-components   
+  
+SVG   
+```HTML
+<svg id="fork-icon" width="24" height="24" viewBox="0 0 24 24">
+<path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z" fill="currentColor"></path>
+</svg>    
+    
+<svg id="time-icon" width="24" height="24" viewBox="0 0 24 24">
+<path d="M22 5.72l-4.6-3.86-1.29 1.53 4.6 3.86L22 5.72zM7.88 3.39L6.6 1.86 2 5.71l1.29 1.53 4.59-3.85zM12.5 8H11v6l4.75 2.85.75-1.23-4-2.37V8zM12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z" fill="currentColor"></path>
+</svg>
+```
+  
+
+  
+
+  
+</details>
+
 ## Install 
 yarn install  
 ```
