@@ -76,7 +76,8 @@ p {
 - add search bar (DONE)
 - add component to play video files (DONE)   
 - add placeholder image (DONE)
-## Good to Have:   
+## Good to Have / Future Release 
+#### Click to view [Projects Kanban board](https://github.com/thraddash/food2/projects/1)
 - form validation (text, img size/type)
 - multi image upload or dropzone    
 - onClick + to add additional textfields and append to json file
@@ -185,6 +186,6 @@ yarn dev
 [node-url]: https://nodejs.org/
 [npm-shield]: https://img.shields.io/badge/npm-v6.14.11-orange
 [npm-url]: https://www.npmjs.com/package/npm-install
-[commits-shield]: https://img.shields.io/badge/commits-95-green.svg
+[commits-shield]: https://img.shields.io/badge/commits-110-green.svg
 [commits-url]: https://img.shields.io/github/commit-activity/y/thraddash/food2
 [product-screenshot]: /src/images/
