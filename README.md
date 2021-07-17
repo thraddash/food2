@@ -5,7 +5,7 @@
 # Food2 (Create, Remove, Update, Delete JSON file)  
 #### Demo: https://happy-shannon-69aac4.netlify.app/   
 ## [Projects Kanban board](https://github.com/thraddash/food2/projects/1) 
-###### 📕 Hard  📙 Mid  📘 InProgress  📗 Completed  
+###### 📕 TBD  📙 Minor  📘 InProgress  📗 Completed  
 
 ###### (branch image) - Recipe Search Page test   
 ###### (branch search) - Search Bar test   
