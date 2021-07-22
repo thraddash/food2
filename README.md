@@ -176,7 +176,15 @@ yarn add concurrently morgan nodemon --dev
 ```
 
 ## Starting the App
-yarn dev will run scripts that is define in th scripts obejct in package.json  
+### Requirement: create .env file    
+**cp .env.sample > .env** 
+```
+REACT_APP_LOCALHOST = localhost
+```
+If you are hosting the app on a server, rename **"localhost"** in **.env** to the **server hostname**      
+
+
+Yarn dev will run scripts that is define in th scripts obejct in package.json  
 concurrently is used to start up both frontend and backend server  
 ```sh
 yarn dev
