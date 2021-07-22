@@ -30,6 +30,7 @@
     "server": "nodemon ./src/server.js",
     "client": "react-scripts start",
     "dev": "concurrently \"yarn server\" \"yarn client\"",
+    "dev2": "concurrently \"yarn serverNode\" \"yarn client\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
