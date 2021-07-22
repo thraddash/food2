@@ -17,6 +17,7 @@ import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
 import DownloadProductsJson from '../components/DownloadProductsJson';
+require('dotenv').config({ path: '../../../.env' });
 
 
 const useStyles = makeStyles((theme) => ({
@@ -58,7 +59,10 @@ const ExpandableTableRow = ({ children, expandComponent, ...otherProps }) => {
   );
 };
 
+const LOCALHOST = process.env.REACT_APP_LOCALHOST;
+
 function Products() {
+
   const classes = useStyles();
 
   // Reference
@@ -219,10 +223,11 @@ function Products() {
   // this function will receive all uodated state / posts after you add, edit delete post
   const saveJson = (posts) => {
     // api URL // end point from node server / express server
-    const url = 'http://localhost:5000/history'
+    //console.log(posts)
+    const url = `http://${LOCALHOST}:5000/products`
     axios.post(url, posts)
       .then(response => {
-        // console.log(response);
+         console.log(response);
       });
   }
 

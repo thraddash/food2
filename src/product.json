@@ -26,12 +26,5 @@
     "season": "n/a",
     "location": "Elm Street",
     "note": "ff"
-  },
-  {
-    "id": "6b7b2f40-dec9-11eb-bffe-a116b30ba9ee",
-    "timestamp": "required",
-    "name": "required",
-    "amount": "required",
-    "price": "required"
   }
 ]

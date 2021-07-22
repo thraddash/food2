@@ -5,8 +5,13 @@ import { v1 as uuidv1 } from 'uuid';
 import axios from 'axios';
 import FileUpload from './FileUpload';
 import PlaceholderImage from '.././images/placeholder.png'
+require('dotenv').config({ path: '../../../.env' });
+
 
 function AddRecipe() {
+
+  // Localhost name from .env
+  const LOCALHOST = process.env.REACT_APP_LOCALHOST
 
   // Timestamp
   //const timestamp = Date.now();
@@ -165,7 +170,7 @@ function AddRecipe() {
   // this function will receive all updated state / posts after you add, edit delete post
   const saveJson = (posts) => {
     // api URL // end point from node server / express server
-    const url = 'http://localhost:5000/write'
+    const url = `http://${LOCALHOST}:5000/write`
     axios.post(url, posts)
       .then(response => {
         // console.log(response);

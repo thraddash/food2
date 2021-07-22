@@ -4,8 +4,11 @@ import Progress from './Progress';
 import axios from 'axios';
 import ".././App.css";
 import placeholder from '../images/vid_placeholder.png';
+require('dotenv').config({ path: '../../../.env' });
 
 const VideoUpload = () => {
+  const LOCALHOST = process.env.REACT_APP_LOCALHOST;
+
   const [file, setFile] = useState([]);
   const [filename, setFilename] = useState('');
   const [uploadedFile, setUploadedFile] = useState({});
@@ -34,7 +37,7 @@ const VideoUpload = () => {
     formData.append('file', file);
 
     try {
-      const url = 'http://localhost:5000/uploadvideo'
+      const url = `http://${LOCALHOST}:5000/uploadvideo`
       const res = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'

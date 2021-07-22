@@ -7,6 +7,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import PlaceholderImage from '.././images/placeholder.png'
+require('dotenv').config({ path: '../../../.env' });
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -15,6 +16,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function EditDeleteRecipe() {
+
+  const LOCALHOST = process.env.REACT_APP_LOCALHOST;
+
   const classes = useStyles();
   // Timestamp
   //const timestamp = Date.now();
@@ -116,7 +120,7 @@ function EditDeleteRecipe() {
   // this function will receive all updated state / posts after you add, edit delete post
   const saveJson = (posts) => {
     // api URL // end point from node server / express server
-    const url = 'http://localhost:5000/write'
+    const url = `http://${LOCALHOST}:5000/write`
     axios.post(url, posts)
       .then(response => {
         // console.log(response);

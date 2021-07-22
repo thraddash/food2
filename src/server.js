@@ -20,32 +20,32 @@ app.get('/', (req, res) => res.status(200).send({
     message: "Server is running..."
 }));
 
-const WriteTextToFileAsyncHistory = async (contentToWrite) => {
-    fs.writeFile('./src/product.json', contentToWrite, (err) => {
-        console.log(contentToWrite);
+const WriteTextToFileAsyncProduct = async (contentToWriteProduct) => {
+    fs.writeFile('./src/product.json', contentToWriteProduct, (err) => {
+        console.log(contentToWriteProduct);
         if (err) {
             console.log(err);
         } else {
-            console.log('Done writing to file...');
+            console.log('Done writing to product file...');
         }
     })
 }
 
 // post product
-app.post('/history', async (req, res, next) => {
+app.post('/products', async (req, res, next) => {
     // take the body from incoming request by using req.body and convert it into string
     const requestContent = JSON.stringify(req.body, null, 2);
-    await WriteTextToFileAsyncHistory(requestContent)
+    await WriteTextToFileAsyncProduct(requestContent)
 });
 /////
 
-const WriteTextToFileAsync = async (contentHistory) => {
-    fs.writeFile('./src/data.json', contentHistory, (err) => {
-        console.log(contentHistory);
+const WriteTextToFileAsync = async (contentToWrite) => {
+    fs.writeFile('./src/data.json', contentToWrite, (err) => {
+        console.log(contentToWrite);
         if (err) {
             console.log(err);
         } else {
-            console.log('Done writing to file...');
+            console.log('Done writing to recipe file...');
         }
     })
 }

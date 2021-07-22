@@ -4,8 +4,11 @@ import Progress from './Progress';
 import axios from 'axios';
 import ".././App.css";
 import placeholder from '../images/placeholder.png';
+require('dotenv').config({ path: '../../../.env' });
 
 const FileUpload = () => {
+  const LOCALHOST = process.env.REACT_APP_LOCALHOST; 
+
   const [file, setFile] = useState([]);
   const [filename, setFilename] = useState('');
   const [uploadedFile, setUploadedFile] = useState({});
@@ -34,7 +37,7 @@ const FileUpload = () => {
     formData.append('file', file);
 
     try {
-      const url = 'http://localhost:5000/upload'
+      const url = `http://${LOCALHOST}:5000/upload`
       const res = await axios.post(url, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
