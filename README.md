@@ -176,7 +176,7 @@ yarn add concurrently morgan nodemon --dev
 ```
 
 ## Starting the App
-### Requirement: create .env file    
+### Requirement: creation of .env file    
 **cp .env.sample > .env** 
 ```
 REACT_APP_LOCALHOST = localhost
