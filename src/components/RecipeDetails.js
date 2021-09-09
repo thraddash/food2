@@ -10,9 +10,9 @@ const RecipeDetails = ({ ingredient, direction, note, misc_image, misc_video }) 
     <div key={uuidv4()} className="ingredient-list">
       <div className="ingredient-text"><h5>Ingredients:</h5>{ingredient} </div><br />
       <Divider />
-      <div className="ingredient-text"><h5>Directions:</h5>{direction} </div><br />
+      <div className="direction-text"><h5>Directions:</h5>{direction} </div><br />
       <Divider />
-      <div className="ingredient-text"><h5>Notes:</h5>{note} </div><br />
+      <div className="note-text"><h5>Notes:</h5>{note} </div><br />
       <Divider />
       <ImageAccordion title="Additional Images" content={misc_image} />
       <Divider />
