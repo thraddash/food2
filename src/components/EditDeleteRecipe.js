@@ -189,7 +189,7 @@ function EditDeleteRecipe() {
                 e.target.style = 'object-fit: scale-down;'
               }}></img>
               <p><b><u>Category:</u></b> {post.category}</p>
-              <p><b><u>Ingredients:</u></b><br></br>{post.ingredients}</p>
+              <p><b><u>Ingredients:</u></b><br></br>{post.ingredient}</p>
               <p><b><u>Directions:</u></b><br></br>{post.direction}</p>
               <p><b><u>Notes:</u></b><br></br>{post.note}</p>
               <p><b><u>MiscImage:</u></b><br></br>{post.misc_image}</p>
