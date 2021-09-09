@@ -261,6 +261,20 @@ h1 {
   white-space: pre-wrap;
 }
 
+.direction-text {
+  font-size: 18px;
+  color: #888;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+.note-text {
+  font-size: 18px;
+  color: #888;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
 /* .ingredient-weight {
   color: #40b48e;
   font-size: 1.3rem;
