@@ -1,4 +1,4 @@
-import product from '../product.json';
+import product from '../data/product.json';
 
 
 // Download JSON File

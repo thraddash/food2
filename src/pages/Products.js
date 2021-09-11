@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ".././App.css";
-import Product from "../product.json";
+import Product from "../data/product.json";
 import { v1 as uuidv1 } from 'uuid';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';

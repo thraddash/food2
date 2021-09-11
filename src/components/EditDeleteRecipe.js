@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../App.css';
-import Data from "../data.json";
+import Data from "../data/data.json";
 import axios from 'axios';
 import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';

@@ -4,7 +4,7 @@ import Recipe from '../components/Recipe';
 import Announcer from '../components/Announcer';
 import ".././App.css";
 import { v4 as uuidv4 } from 'uuid';
-import data from "../data.json";
+import data from "../data/data.json";
 
 
 const filterData = (data, query) => {

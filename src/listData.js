@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Data from "./data.json";
+import Data from "./data/data.json";
 
 function ListData({ populatePost, deletePost }) {
   return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
-import Data from "../data.json";
+import Data from "../data/data.json";
 import { v1 as uuidv1 } from 'uuid';
 import axios from 'axios';
 import FileUpload from './FileUpload';

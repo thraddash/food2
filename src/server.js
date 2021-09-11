@@ -21,7 +21,7 @@ app.get('/', (req, res) => res.status(200).send({
 }));
 
 const WriteTextToFileAsyncProduct = async (contentToWriteProduct) => {
-    fs.writeFile('./src/product.json', contentToWriteProduct, (err) => {
+    fs.writeFile('./src/data/product.json', contentToWriteProduct, (err) => {
         console.log(contentToWriteProduct);
         if (err) {
             console.log(err);
@@ -40,7 +40,7 @@ app.post('/products', async (req, res, next) => {
 /////
 
 const WriteTextToFileAsync = async (contentToWrite) => {
-    fs.writeFile('./src/data.json', contentToWrite, (err) => {
+    fs.writeFile('./src/data/data.json', contentToWrite, (err) => {
         console.log(contentToWrite);
         if (err) {
             console.log(err);

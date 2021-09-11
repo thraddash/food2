@@ -1,4 +1,4 @@
-import Data from '../data.json';
+import Data from '../data/data.json';
 
 
 // Download JSON File
