@@ -5,7 +5,7 @@ WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
 COPY public/index.html public/index.html
-COPY src/App.css/src/App.css
+COPY src/App.css src/App.css
 COPY src/App.js src/App.js
 COPY src/components src/components
 COPY src/pages src/pages
