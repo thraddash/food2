@@ -9,6 +9,7 @@ COPY src/App.css src/App.css
 COPY src/App.js src/App.js
 COPY src/components src/components
 COPY src/pages src/pages
+COPY src/images src/images
 COPY src/index.css src/index.css
 COPY src/index.js src/index.js
 COPY src/listData.js src/listData.js
