@@ -8,6 +8,6 @@ RUN npm install
 RUN npm audit fix
 
 COPY . ./
-COPY .env.sample .env
+RUN echo "REACT_APP_LOCALHOST = localhost" > .env
 
 CMD yarn client
