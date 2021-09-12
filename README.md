@@ -3,7 +3,7 @@
 [![GitHub commit activity][commits-shield]][commits-url]
 
 # Food2 (Create, Remove, Update, Delete JSON file)  
-#### Demo: https://happy-shannon-69aac4.netlify.app/   
+
 ## [Projects Kanban board](https://github.com/thraddash/food2/projects/1) 
 ###### 📕 TBD  📙 Minor  📘 InProgress  📗 Completed  
 
@@ -16,7 +16,7 @@ https://github.com/thraddash/navbar Demo: https://clever-hodgkin-c4212b.netlify.
 https://github.com/thraddash/carousel_test Demo: https://hungry-fermat-1aa832.netlify.app   
 
 
-<img src="https://github.com/thraddash/food2/blob/master/src/images/mockup.png" width="800" title="Mockup">
+<img src="https://raw.githubusercontent.com/thraddash/food2/master/frontend/src/images/mockup.png" width="800" title="Mockup">
 
 <!-- TABLE OF CONTENTS -->
 <details open="open">
@@ -34,6 +34,7 @@ https://github.com/thraddash/carousel_test Demo: https://hungry-fermat-1aa832.ne
 </details>
 
 ## About the Project
+### >> Revamping build TBD << ###
 React App. Fontend render and loads data.json file.   
 User can update post, delete post and download data.json file.    
 Running "yarn dev" will concurently start up frontend and backend server.  
@@ -210,4 +211,4 @@ yarn dev
 [npm-url]: https://www.npmjs.com/package/npm-install
 [commits-shield]: https://img.shields.io/badge/commits-112-green.svg
 [commits-url]: https://img.shields.io/github/commit-activity/y/thraddash/food2
-[product-screenshot]: /src/images/
+
